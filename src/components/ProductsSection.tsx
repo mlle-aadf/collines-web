@@ -7,11 +7,11 @@ const products = [
   {
     title: "Paniers",
     subtitle: "Abonnement saisonnier",
-    text: `L'abonnement à notre saison vous permet d'avoir un accès privilégié à nos produits, et de bénéficier d'un rabais entre 5 et 10 % sur la valeur des produits. L'abonnement est payable d'avance lors de l'inscription et vous donne accès à nos produits pour toute la saison.
+    text: `Bénéficiez d'un accès privilégié à nos produits toute la saison et profitez d'un rabais de 5 à 10 % (payable d'avance à l'inscription).
 
-• QUAND : 15 semaines (29 juin au 5 octobre 2026)
-• RÉCUPÉRATION : Les lundis entre 15h30 et 18h
-• LIEU : Sous le chapiteau du marché public (222 Av. Dallaire)
+QUAND : 15 semaines (29 juin au 5 octobre 2026)
+RÉCUPÉRATION : Les lundis entre 15h30 et 18h
+LIEU : Sous le chapiteau du marché public (222 Av. Dallaire)
 
 Abonnements disponibles :
 - Le mini: 23$/semaine (Total: 345$)

@@ -7,10 +7,10 @@ const NewsletterSection = () => {
         <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
           <div className="flex flex-col items-center text-center md:items-start md:text-left">
             <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl font-semibold text-foreground mb-4">
-              Le meilleur de notre terre, directement dans votre panier.
+              Restez à l'affût
             </h2>
             <p className="font-body text-base md:text-lg text-muted-foreground leading-relaxed mb-8">
-              Soutenez l’agriculture d’ici en vous abonnant à nos récoltes saisonnières. Une dose de fraîcheur hebdomadaire, cultivée avec soin par notre famille pour la vôtre.
+              De l'inspiration horticole et nos secrets de jardinage exclusifs chaque semaine.
             </p>
             <a
               href="https://forms.gle/5XdKBtnyURd29b3E9"
