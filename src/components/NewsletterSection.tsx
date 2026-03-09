@@ -5,16 +5,21 @@ const NewsletterSection = () => {
     <section className="py-20 md:py-28">
       <div className="container">
         <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
-          <div>
+          <div className="flex flex-col items-center text-center md:items-start md:text-left">
             <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl font-semibold text-foreground mb-4">
               Restez à l'affût
             </h2>
             <p className="font-body text-base md:text-lg text-muted-foreground leading-relaxed mb-8">
               De l'inspiration horticole et nos secrets de jardinage exclusifs chaque semaine.
             </p>
-            <button className="bg-primary text-primary-foreground font-body font-medium text-sm px-8 py-3 rounded-full hover:bg-secondary transition-colors duration-300">
+            <a
+              href="https://forms.gle/5XdKBtnyURd29b3E9"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-primary text-primary-foreground font-body font-medium text-sm px-8 py-3 rounded-full hover:bg-secondary transition-colors duration-300"
+            >
               Je m'abonne
-            </button>
+            </a>
           </div>
           <div className="rounded-lg overflow-hidden">
             <img
