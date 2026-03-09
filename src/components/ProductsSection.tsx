@@ -6,54 +6,103 @@ import detaillantImg from "@/assets/product-detaillant.jpg";
 const products = [
   {
     title: "Paniers",
-    text: "Abonnement hebdomadaire, disponible en 3 formats.",
+    subtitle: "Abonnement saisonnier",
+    text: `L'abonnement à notre saison vous permet d'avoir un accès privilégié à nos produits, et de bénéficier d'un rabais entre 5 et 10 % sur la valeur des produits. L'abonnement est payable d'avance lors de l'inscription et vous donne accès à nos produits pour toute la saison.
+
+• QUAND : 15 semaines (29 juin au 5 octobre 2026)
+• RÉCUPÉRATION : Les lundis entre 15h30 et 18h
+• LIEU : Sous le chapiteau du marché public (222 Av. Dallaire)
+
+Abonnements disponibles :
+- Le mini: 23$/semaine (Total: 345$)
+- Le régulier: 35$/semaine (Total: 525$)
+- Le grand: 45$/semaine (Total: 675$)`,
     image: paniersImg,
   },
   {
     title: "Marché",
-    text: "Marché Fermier en tout temps, et Marché public de Rouyn-Noranda les mercredis.",
+    subtitle: "Directement du producteur",
+    text: `Retrouvez-nous au Marché Fermier en tout temps, et au Marché public de Rouyn-Noranda les mercredis.
+
+C'est l'occasion idéale de découvrir nos nouveautés, de discuter de nos méthodes de culture durable et de choisir vos légumes pièce par pièce. Nous acceptons les paiements comptants, débit et crédit pour faciliter vos emplettes de fraîcheur.`,
     image: marcheImg,
   },
   {
     title: "Kiosque",
-    text: "Kiosque libre service, situé à côté de notre serre, ouvert tous les jours.",
+    subtitle: "Libre-service 7/7",
+    text: `Notre kiosque libre-service est situé juste à côté de notre serre principale. Il est ouvert tous les jours de la semaine pour vous offrir une flexibilité maximale.
+
+Vous y trouverez une sélection de nos récoltes du jour, fraîchement cueillies. Le fonctionnement repose sur l'honneur et la confiance, avec un système de paiement simple et efficace sur place.`,
     image: kiosqueImg,
   },
   {
     title: "Détaillant",
-    text: "IGA Extra Marché Éric Lambert\n105 Chem. Sénateur\nRouyn-Noranda, QC",
+    subtitle: "Près de chez vous",
+    text: `Nos produits sont également disponibles chez nos partenaires locaux de confiance :
+
+IGA Extra Marché Éric Lambert
+105 Chem. Sénateur, Rouyn-Noranda, QC
+
+Cherchez notre logo en magasin pour garantir la provenance locale et la fraîcheur exceptionnelle de vos légumes de saison.`,
     image: detaillantImg,
   },
 ];
 
 const ProductsSection = () => {
   return (
-    <section id="produits" className="py-20 md:py-28 bg-muted">
+    <section id="produits" className="py-20 md:py-32 bg-white">
       <div className="container">
-        <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl font-semibold text-foreground text-center mb-12 md:mb-16">
-          Où trouver nos produits
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {products.map((p) => (
+        <header className="max-w-3xl mx-auto text-center mb-20 md:mb-28">
+          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+            Où trouver nos produits
+          </h2>
+          <div className="w-20 h-1.5 bg-secondary mx-auto rounded-full" />
+        </header>
+
+        <div className="flex flex-col gap-24 md:gap-40">
+          {products.map((p, index) => (
             <div
               key={p.title}
-              className="bg-card rounded-lg overflow-hidden shadow-card hover:shadow-card-hover transition-shadow duration-300 group"
+              className={`flex flex-col gap-10 md:gap-16 items-center ${index % 2 === 1 ? "md:flex-row-reverse" : "md:flex-row"
+                }`}
             >
-              <div className="overflow-hidden">
-                <img
-                  src={p.image}
-                  alt={p.title}
-                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
-                  loading="lazy"
-                />
+              {/* Image side */}
+              <div className="w-full md:w-1/2">
+                <div className="relative group">
+                  <div className="absolute -inset-4 bg-muted rounded-2xl -z-10 transition-transform group-hover:scale-105 duration-500" />
+                  <div className="rounded-2xl overflow-hidden shadow-xl aspect-[4/3]">
+                    <img
+                      src={p.image}
+                      alt={p.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
               </div>
-              <div className="p-5">
-                <h3 className="font-heading text-lg font-semibold text-foreground mb-2">
+
+              {/* Content side */}
+              <div className="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left">
+                <span className="font-body text-secondary font-bold tracking-widest uppercase text-sm mb-3">
+                  {p.subtitle}
+                </span>
+                <h3 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-6">
                   {p.title}
                 </h3>
-                <p className="font-body text-sm text-muted-foreground whitespace-pre-line leading-relaxed">
+                <p className="font-body text-base md:text-lg text-muted-foreground whitespace-pre-line leading-relaxed italic md:not-italic">
                   {p.text}
                 </p>
+
+                {p.title === "Paniers" && (
+                  <a
+                    href="https://forms.gle/5XdKBtnyURd29b3E9"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-8 inline-block bg-primary text-primary-foreground font-body font-bold px-8 py-3 rounded-full hover:bg-secondary transition-colors duration-300"
+                  >
+                    Réserver mon panier
+                  </a>
+                )}
               </div>
             </div>
           ))}
