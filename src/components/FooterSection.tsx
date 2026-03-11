@@ -64,10 +64,23 @@ const FooterSection = () => {
           </div>
         </div>
 
-        <div className="mt-12 pt-6 border-t border-border/60">
+        <div className="mt-12 pt-6 border-t border-border/60 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="font-body text-[10px] text-center text-muted-foreground/60 tracking-widest uppercase">
             © {new Date().getFullYear()} LA FERME DES COLLINES. Tous droits réservés.
           </p>
+          <div className="flex gap-6">
+            <button
+              onClick={() => {
+                // This could open a modal or navigate to a page
+                // For now, it's a placeholder button that could reveal the cookie consent again
+                localStorage.removeItem("cookie-consent");
+                window.location.reload();
+              }}
+              className="font-body text-[10px] text-muted-foreground/60 tracking-widest uppercase hover:text-primary transition-colors"
+            >
+              Politique de cookies
+            </button>
+          </div>
         </div>
       </div>
     </footer>
