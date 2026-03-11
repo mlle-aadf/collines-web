@@ -14,7 +14,7 @@ const AboutSection = () => {
               cultiver des légumes savoureux pour faciliter la vie des familles d'ici.
             </p>
 
-            <ul className="list-disc pl-6 space-y-3 mt-6 text-muted-foreground md:max-w-xl">
+            <ul className="list-none pl-0 space-y-3 mt-6 text-muted-foreground md:max-w-xl">
               <li><strong>Sains :</strong> Cultivés avec respect pour la terre et pour votre santé.</li>
               <li><strong>Frais :</strong> Récoltés à maturité pour que vous profitiez du vrai goût des aliments.</li>
               <li><strong>Simples :</strong> Des produits authentiques, faciles à cuisiner, qui ramènent l'essentiel dans l'assiette.</li>
