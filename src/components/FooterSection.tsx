@@ -1,6 +1,6 @@
 import { Mail, Phone, MapPin } from "lucide-react";
 import logoFull from "@/assets/logo-full.png";
-import { openConsentManager } from "./CookieConsent";
+import { openPrivacyPolicy } from "./CookieBanner";
 
 const FooterSection = () => {
   return (
@@ -71,10 +71,10 @@ const FooterSection = () => {
           </p>
           <div className="flex gap-6">
             <button
-              onClick={openConsentManager}
+              onClick={openPrivacyPolicy}
               className="font-body text-[10px] text-muted-foreground/60 tracking-widest uppercase hover:text-primary transition-colors"
             >
-              Gérer les témoins
+              Politique de confidentialité
             </button>
           </div>
         </div>

@@ -4,10 +4,9 @@ import { X, ShieldCheck } from "lucide-react";
 interface PolicyModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onReopenConsent: () => void;
 }
 
-const PolicyModal = ({ isOpen, onClose, onReopenConsent }: PolicyModalProps) => {
+const PolicyModal = ({ isOpen, onClose }: PolicyModalProps) => {
   const modalRef = useRef<HTMLDivElement>(null);
   const firstFocusRef = useRef<HTMLButtonElement>(null);
 
@@ -31,7 +30,7 @@ const PolicyModal = ({ isOpen, onClose, onReopenConsent }: PolicyModalProps) => 
 
   return (
     <div className="fixed inset-0 z-[110] flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm animate-fade-in">
-      <div
+      <div 
         ref={modalRef}
         className="bg-white w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden animate-scale-in"
         role="dialog"
@@ -45,7 +44,7 @@ const PolicyModal = ({ isOpen, onClose, onReopenConsent }: PolicyModalProps) => 
               Politique de confidentialité
             </h2>
           </div>
-          <button
+          <button 
             ref={firstFocusRef}
             onClick={onClose}
             className="p-2 hover:bg-gray-100 rounded-full transition-colors text-gray-500"
@@ -54,10 +53,10 @@ const PolicyModal = ({ isOpen, onClose, onReopenConsent }: PolicyModalProps) => 
             <X size={20} />
           </button>
         </div>
-
+        
         <div className="p-6 md:p-8 max-h-[60vh] overflow-y-auto font-body text-sm text-[#4A4A4A] space-y-4">
           <p className="font-bold text-[#1A1A1A]">Dernière mise à jour : {new Date().toLocaleDateString('fr-CA')}</p>
-
+          
           <h4 className="font-bold text-[#1A1A1A]">Engagement Loi 25</h4>
           <p>
             Conformément à la Loi 25 du Québec, nous nous engageons à protéger vos données personnelles.
@@ -73,20 +72,7 @@ const PolicyModal = ({ isOpen, onClose, onReopenConsent }: PolicyModalProps) => 
             <li>Assurer la sécurité de vos données.</li>
             <li>Améliorer la performance du site.</li>
           </ul>
-
-          <p className="pt-2">
-            Vous pouvez consulter l'état de vos témoins ici :
-            <button
-              onClick={() => {
-                onClose();
-                onReopenConsent();
-              }}
-              className="text-[#23622F] font-bold underline mx-1 hover:text-[#184521] transition-colors inline-block"
-            >
-              Voir les préférences
-            </button>
-          </p>
-
+          
           <div className="bg-blue-50 border-l-4 border-blue-400 p-4 mt-6">
             <p className="text-blue-800 font-semibold text-xs">Note technique</p>
             <p className="text-blue-700 text-xs mt-1">

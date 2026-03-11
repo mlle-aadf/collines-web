@@ -1,16 +1,14 @@
 import { useState, useEffect } from "react";
 import { Cookie } from "lucide-react";
 import PolicyModal from "./PolicyModal";
-import ConsentManager from "./ConsentManager";
 
-export const openConsentManager = () => {
-  window.dispatchEvent(new CustomEvent("open-consent-manager"));
+export const openPrivacyPolicy = () => {
+  window.dispatchEvent(new CustomEvent("open-privacy-policy"));
 };
 
-const CookieConsent = () => {
+const CookieBanner = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isPolicyOpen, setIsPolicyOpen] = useState(false);
-  const [isManagerOpen, setIsManagerOpen] = useState(false);
 
   useEffect(() => {
     const stored = localStorage.getItem("cookie-prefs");
@@ -23,13 +21,11 @@ const CookieConsent = () => {
   }, []);
 
   useEffect(() => {
-    const handleReopen = () => setIsManagerOpen(true);
-    const handleOpenManager = () => setIsManagerOpen(true);
-    window.addEventListener("reopen-cookie-consent", handleReopen);
-    window.addEventListener("open-consent-manager", handleOpenManager);
+    const handleOpenPolicy = () => setIsPolicyOpen(true);
+    window.addEventListener("open-privacy-policy", handleOpenPolicy);
+    
     return () => {
-      window.removeEventListener("reopen-cookie-consent", handleReopen);
-      window.removeEventListener("open-consent-manager", handleOpenManager);
+      window.removeEventListener("open-privacy-policy", handleOpenPolicy);
     };
   }, []);
 
@@ -42,7 +38,7 @@ const CookieConsent = () => {
     setIsVisible(false);
   };
 
-  if (!isVisible && !isPolicyOpen && !isManagerOpen) return null;
+  if (!isVisible && !isPolicyOpen) return null;
 
   return (
     <>
@@ -65,21 +61,15 @@ const CookieConsent = () => {
               </div>
               
               <p id="cookie-desc" className="font-body text-sm text-[#4A4A4A] leading-relaxed">
-                Ce site utilise des témoins essentiels uniquement pour assurer son bon fonctionnement.{" "}
-                <button 
-                  onClick={() => setIsPolicyOpen(true)}
-                  className="text-[#23622F] font-bold underline hover:text-[#184521] transition-colors"
-                >
-                  Détails
-                </button>
+                Ce site utilise des témoins essentiels uniquement pour assurer son bon fonctionnement.
               </p>
 
               <div className="flex items-center gap-3 w-full">
                 <button
-                  onClick={() => setIsManagerOpen(true)}
+                  onClick={() => setIsPolicyOpen(true)}
                   className="flex-1 bg-[#F5F5F5] text-[#4A4A4A] font-body font-bold py-3 px-4 rounded-xl hover:bg-[#EAEAEA] transition-all duration-300 border border-[#DEDEDE] text-xs"
                 >
-                  Voir les préférences
+                  Politique de confidentialité
                 </button>
                 <button
                   onClick={handleAccept}
@@ -96,15 +86,9 @@ const CookieConsent = () => {
       <PolicyModal 
         isOpen={isPolicyOpen} 
         onClose={() => setIsPolicyOpen(false)} 
-        onReopenConsent={() => setIsManagerOpen(true)}
-      />
-
-      <ConsentManager 
-        isOpen={isManagerOpen} 
-        onClose={() => setIsManagerOpen(false)} 
       />
     </>
   );
 };
 
-export default CookieConsent;
+export default CookieBanner;
