@@ -1,7 +1,7 @@
-import paniersImg from "@/assets/product-paniers.jpg";
-import marcheImg from "@/assets/product-marche.jpg";
-import kiosqueImg from "@/assets/product-kiosque.jpg";
 import detaillantImg from "@/assets/product-detaillant.jpg";
+import kiosqueImg from "@/assets/product-kiosque.jpg";
+import marcheImg from "@/assets/product-marche.jpg";
+import paniersImg from "@/assets/product-paniers.jpg";
 
 const products = [
   {
@@ -20,11 +20,19 @@ Abonnements disponibles :
     image: paniersImg,
   },
   {
-    title: "Marché",
+    title: "Marché public",
     subtitle: "Directement du producteur",
-    text: `Retrouvez-nous au Marché Fermier en tout temps, et au Marché public de Rouyn-Noranda les mercredis.
+    marketLink: "https://www.facebook.com/MPRouynNoranda/?locale=fr_CA",
+    text: `Retrouvez toute la saveur de nos champs au cœur de la ville ! Tous les mercredis de la saison estivale, nous vous accueillons avec nos plus belles récoltes.
 
-C'est l'occasion idéale de découvrir nos nouveautés, de discuter de nos méthodes de culture durable et de choisir vos légumes pièce par pièce. Nous acceptons les paiements comptants, débit et crédit pour faciliter vos emplettes de fraîcheur.`,
+Découvrez : Nos nouveautés et variétés de saison.
+
+Échangez : Posez vos questions sur notre agriculture durable.
+
+Liberté : Choisissez exactement ce dont vous avez besoin.
+
+Paiements faciles : Argent comptant, cartes de débit et de crédit acceptées.
+`,
     image: marcheImg,
   },
   {
@@ -89,9 +97,30 @@ const ProductsSection = () => {
                 <h3 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-6">
                   {p.title}
                 </h3>
-                <p className="font-body text-base md:text-lg text-muted-foreground whitespace-pre-line leading-relaxed italic md:not-italic">
-                  {p.text}
-                </p>
+                {p.marketLink ? (
+                  <>
+                    <p className="font-body text-base md:text-lg text-muted-foreground leading-relaxed md:leading-loose md:max-w-xl">
+                      Rendez-vous hebdomadaire :{' '}
+                      <a
+                        href={p.marketLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-primary underline"
+                      >
+                        Le Marché public de Rouyn-Noranda
+                      </a>{' '}
+                      🧺
+                    </p>
+
+                    <p className="font-body text-base md:text-lg text-muted-foreground whitespace-pre-line leading-relaxed italic md:not-italic">
+                      {p.text}
+                    </p>
+                  </>
+                ) : (
+                  <p className="font-body text-base md:text-lg text-muted-foreground whitespace-pre-line leading-relaxed italic md:not-italic">
+                    {p.text}
+                  </p>
+                )}
 
                 {p.title === "Paniers" && (
                   <a
