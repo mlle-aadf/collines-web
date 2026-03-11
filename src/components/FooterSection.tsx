@@ -71,14 +71,11 @@ const FooterSection = () => {
           <div className="flex gap-6">
             <button
               onClick={() => {
-                // This could open a modal or navigate to a page
-                // For now, it's a placeholder button that could reveal the cookie consent again
-                localStorage.removeItem("cookie-consent");
-                window.location.reload();
+                window.dispatchEvent(new CustomEvent("reopen-cookie-consent"));
               }}
               className="font-body text-[10px] text-muted-foreground/60 tracking-widest uppercase hover:text-primary transition-colors"
             >
-              Politique de cookies
+              Gérer les témoins
             </button>
           </div>
         </div>
