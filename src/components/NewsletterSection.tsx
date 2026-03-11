@@ -17,7 +17,7 @@ const NewsletterSection = () => {
               De l'inspiration horticole et nos secrets de jardinage exclusifs chaque semaine dans notre infolettre.
             </p>
             <a
-              href="https://forms.gle/5XdKBtnyURd29b3E9"
+              href="https://preview.mailerlite.io/forms/2129271/181208096676250955/share"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-primary text-primary-foreground font-body font-medium text-sm px-8 py-3 rounded-full hover:bg-secondary transition-colors duration-300"
