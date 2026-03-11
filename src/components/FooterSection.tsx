@@ -45,7 +45,7 @@ const FooterSection = () => {
                 </div>
                 <div>
                   <span className="block font-bold text-foreground text-sm uppercase tracking-wider mb-1">Courriel</span>
-                  <span className="text-xs">info@fermeslescollines.ca</span>
+                  <span className="text-xs">info@fermesdescollines.ca</span>
                 </div>
               </a>
 

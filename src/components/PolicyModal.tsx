@@ -54,30 +54,36 @@ const PolicyModal = ({ isOpen, onClose }: PolicyModalProps) => {
           </button>
         </div>
         
-        <div className="p-6 md:p-8 max-h-[60vh] overflow-y-auto font-body text-sm text-[#4A4A4A] space-y-4">
-          <p className="font-bold text-[#1A1A1A]">Dernière mise à jour : {new Date().toLocaleDateString('fr-CA')}</p>
-          
-          <h4 className="font-bold text-[#1A1A1A]">Engagement Loi 25</h4>
-          <p>
-            Conformément à la Loi 25 du Québec, nous nous engageons à protéger vos données personnelles.
-            Ce site utilise uniquement des témoins **essentiels** pour assurer son bon fonctionnement technique.
-          </p>
+        <div className="p-6 md:p-8 max-h-[60vh] overflow-y-auto font-body text-sm text-[#4A4A4A] space-y-6">
+          <div>
+            <p className="font-bold text-[#1A1A1A]">Dernière mise à jour : 2026-03-11</p>
+          </div>
 
-          <h4 className="font-bold text-[#1A1A1A]">Témoins utilisés</h4>
-          <p className="leading-relaxed">
-            Nous n'utilisons aucun témoin de suivi, d'analyse ou de marketing. Les seuls témoins servent à :
-          </p>
-          <ul className="list-disc pl-5 space-y-1">
-            <li>Mémoriser vos préférences de navigation.</li>
-            <li>Assurer la sécurité de vos données.</li>
-            <li>Améliorer la performance du site.</li>
-          </ul>
-          
+          <div className="space-y-2">
+            <h4 className="font-bold text-[#1A1A1A]">Engagement Loi 25</h4>
+            <p>
+              Conformément à la Loi 25 du Québec, nous protégeons vos données personnelles.
+            </p>
+          </div>
+
+          <div className="space-y-2">
+            <h4 className="font-bold text-[#1A1A1A]">Témoins essentiels uniquement</h4>
+            <ul className="list-disc pl-5 space-y-1">
+              <li>Fonctionnement technique du site</li>
+              <li>Sécurité des sessions</li>
+            </ul>
+            <p className="pt-1">Aucun suivi, analyse ou marketing.</p>
+          </div>
+
           <div className="bg-blue-50 border-l-4 border-blue-400 p-4 mt-6">
             <p className="text-blue-800 font-semibold text-xs">Note technique</p>
             <p className="text-blue-700 text-xs mt-1">
-              Votre choix est conservé localement pour respecter vos préférences lors de vos prochaines visites.
+              Votre choix est conservé en session (supprimé à la fermeture de l'onglet).
             </p>
+          </div>
+
+          <div className="pt-2 italic text-xs">
+            <p><span className="font-bold text-[#1A1A1A]">Contact :</span> info@fermedescollines.ca</p>
           </div>
         </div>
 

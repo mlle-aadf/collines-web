@@ -11,7 +11,7 @@ const CookieBanner = () => {
   const [isPolicyOpen, setIsPolicyOpen] = useState(false);
 
   useEffect(() => {
-    const stored = localStorage.getItem("cookie-prefs");
+    const stored = sessionStorage.getItem("cookie-prefs");
     const prefs = stored ? JSON.parse(stored) : null;
 
     if (!prefs) {
@@ -34,7 +34,7 @@ const CookieBanner = () => {
       essential: true,
       timestamp: new Date().toISOString(),
     };
-    localStorage.setItem("cookie-prefs", JSON.stringify(prefs));
+    sessionStorage.setItem("cookie-prefs", JSON.stringify(prefs));
     setIsVisible(false);
   };
 
