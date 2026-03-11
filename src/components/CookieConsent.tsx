@@ -48,14 +48,52 @@ const CookieConsent = () => {
 
   const loadAnalytics = () => {
     console.log("🚀 Analytics LOADED: Loi 25 status check passed.");
-    // Insert real tracking scripts here
-    // example: window.gtag('consent', 'update', { 'analytics_storage': 'granted' });
+    
+    // 1. Create the main script tag
+    if (!document.getElementById('google-analytics')) {
+      const script = document.createElement('script');
+      script.id = 'google-analytics';
+      script.async = true;
+      script.src = `https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX`; // Replace with real ID
+      document.head.appendChild(script);
+
+      // 2. Initialize the dataLayer
+      const inlineScript = document.createElement('script');
+      inlineScript.id = 'ga-init';
+      inlineScript.innerHTML = `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX', { 'anonymize_ip': true });
+      `;
+      document.head.appendChild(inlineScript);
+    }
   };
 
   const unloadAnalytics = () => {
     console.log("🛑 Analytics UNLOADED: Consent withdrawn.");
-    // Clear cookies or disable tracking objects here
-    // example: window.gtag('consent', 'update', { 'analytics_storage': 'denied' });
+    
+    // Remove the script tags if they exist
+    const scripts = ['google-analytics', 'ga-init'];
+    scripts.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.remove();
+    });
+
+    // Clean up cookies (Google Analytics uses _ga and _gid)
+    const cookies = document.cookie.split(";");
+    for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i];
+        const eqPos = cookie.indexOf("=");
+        const name = eqPos > -1 ? cookie.substring(0, eqPos).trim() : cookie.trim();
+        if (name.startsWith('_ga') || name.startsWith('_gid')) {
+          document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        }
+    }
+    
+    // Best practice for Loi 25: clear window objects
+    delete (window as any).gtag;
+    delete (window as any).dataLayer;
   };
 
   const handleInitialChoice = (choice: "accepted" | "rejected") => {

@@ -100,7 +100,7 @@ const PolicyModal = ({ isOpen, onClose, onReopenConsent }: PolicyModalProps) => 
         <div className="p-6 bg-gray-50 border-t border-border flex justify-end">
           <button
             onClick={onClose}
-            className="bg-[#23622F] text-white font-body font-bold py-3 px-8 rounded-xl hover:bg-[#184521] transition-all"
+            className="bg-[#23622F] text-white font-body font-bold py-3 px-8 rounded-xl hover:bg-[#184521] transition-all focus:outline-none focus:ring-4 focus:ring-[#23622F]/40"
           >
             Compris
           </button>
