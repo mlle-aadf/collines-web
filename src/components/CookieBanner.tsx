@@ -61,19 +61,19 @@ const CookieBanner = () => {
               </div>
               
               <p id="cookie-desc" className="font-body text-sm text-[#4A4A4A] leading-relaxed">
-                Ce site utilise des témoins essentiels uniquement pour assurer son bon fonctionnement.
+                Ce site utilise des témoins essentiels uniquement pour assurer son bon fonctionnement.{" "}
+                <button 
+                  onClick={() => setIsPolicyOpen(true)}
+                  className="text-[#23622F] font-bold underline hover:text-[#184521] transition-colors"
+                >
+                  Politique de confidentialité
+                </button>
               </p>
 
               <div className="flex items-center gap-3 w-full">
                 <button
-                  onClick={() => setIsPolicyOpen(true)}
-                  className="flex-1 bg-[#F5F5F5] text-[#4A4A4A] font-body font-bold py-3 px-4 rounded-xl hover:bg-[#EAEAEA] transition-all duration-300 border border-[#DEDEDE] text-xs"
-                >
-                  Politique de confidentialité
-                </button>
-                <button
                   onClick={handleAccept}
-                  className="flex-1 bg-[#23622F] text-white font-body font-bold py-3 px-4 rounded-xl hover:bg-[#184521] transition-all duration-300 shadow-sm text-xs"
+                  className="w-full bg-[#23622F] text-white font-body font-bold py-3 px-4 rounded-xl hover:bg-[#184521] transition-all duration-300 shadow-sm text-sm"
                 >
                   Accepter
                 </button>
