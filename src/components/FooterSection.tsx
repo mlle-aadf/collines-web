@@ -1,5 +1,5 @@
-import { Mail, Phone, MapPin } from "lucide-react";
 import logoFull from "@/assets/logo-full.png";
+import { Mail, MapPin, Phone } from "lucide-react";
 import { openPrivacyPolicy } from "./CookieBanner";
 
 const FooterSection = () => {

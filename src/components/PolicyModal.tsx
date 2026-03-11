@@ -1,5 +1,5 @@
-import { useRef, useEffect } from "react";
-import { X, ShieldCheck } from "lucide-react";
+import { ShieldCheck, X } from "lucide-react";
+import { useEffect, useRef } from "react";
 
 interface PolicyModalProps {
   isOpen: boolean;
@@ -82,7 +82,7 @@ const PolicyModal = ({ isOpen, onClose }: PolicyModalProps) => {
             </p>
           </div>
 
-          <div className="pt-2 italic text-xs">
+          <div className="pt-2 text-xs">
             <p><span className="font-bold text-[#1A1A1A]">Contact :</span> info@fermedescollines.ca</p>
           </div>
         </div>

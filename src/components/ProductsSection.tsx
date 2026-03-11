@@ -36,22 +36,26 @@ Paiements faciles : Argent comptant, cartes de débit et de crédit acceptées.
     image: marcheImg,
   },
   {
-    title: "Kiosque",
+    title: "Kiosque à la ferme",
     subtitle: "Libre-service 7/7",
-    text: `Notre kiosque libre-service est situé juste à côté de notre serre principale. Il est ouvert tous les jours de la semaine pour vous offrir une flexibilité maximale.
+    text: `Le Marché de la Ferme : Fraîcheur en toute liberté
+Dès le 1er juillet, nous vous ouvrons les portes de notre kiosque libre-service, situé directement dans notre bâtiment principal. Pensé pour s'adapter à votre horaire, il est ouvert tous les jours de 9h à 18h.
 
-Vous y trouverez une sélection de nos récoltes du jour, fraîchement cueillies. Le fonctionnement repose sur l'honneur et la confiance, avec un système de paiement simple et efficace sur place.`,
+Vous y découvrirez chaque jour une sélection de nos plus belles récoltes. Notre concept repose sur une valeur qui nous tient à cœur : la confiance. Vous choisissez vos légumes et déposez votre paiement en toute simplicité (comptant uniquement). C'est le raccourci idéal entre nos champs et votre cuisine !`,
     image: kiosqueImg,
   },
   {
-    title: "Détaillant",
-    subtitle: "Près de chez vous",
-    text: `Nos produits sont également disponibles chez nos partenaires locaux de confiance :
+    title: "Près de chez vous",
+    subtitle: "Partenaires locaux",
+    text: `Retrouvez La Ferme des Collines chez nos partenaires de confiance
 
-IGA Extra Marché Éric Lambert
-105 Chem. Sénateur, Rouyn-Noranda, QC
-
-Cherchez notre logo en magasin pour garantir la provenance locale et la fraîcheur exceptionnelle de vos légumes de saison.`,
+Parce que nous croyons à la force de notre communauté, nos récoltes voyagent aussi jusqu'à vos adresses préférées de Rouyn-Noranda. Vous pouvez savourer la fraîcheur de nos légumes de saison aux points de vente suivants :`,
+    partners: [
+      { name: "IGA Extra Marché Éric Lambert", address: "105, chemin Sénateur" },
+      { name: "Le Cellier (Resto/Bar à vin)", address: "126, avenue Murdoch", href: "https://lenoranda.com/restaurant/" },
+      { name: "Marché du Fermier", address: "167, rue Gamble", href: "https://marche-du-fermier.myshopify.com/" },
+    ],
+    conclusion: `Un gage de qualité : Repérez notre logo ! C’est votre garantie d’un produit local, cueilli avec soin et livré avec toute sa vitalité.`,
     image: detaillantImg,
   },
 ];
@@ -90,7 +94,7 @@ const ProductsSection = () => {
               </div>
 
               {/* Content side */}
-              <div className="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left">
+              <div className="w-full md:w-1/2 flex flex-col items-start text-left">
                 <span className="font-body text-secondary font-bold tracking-widest uppercase text-sm mb-3">
                   {p.subtitle}
                 </span>
@@ -112,14 +116,35 @@ const ProductsSection = () => {
                       🧺
                     </p>
 
-                    <p className="font-body text-base md:text-lg text-muted-foreground whitespace-pre-line leading-relaxed italic md:not-italic">
+                    <p className="font-body text-base md:text-lg text-muted-foreground whitespace-pre-line leading-relaxed">
                       {p.text}
                     </p>
                   </>
                 ) : (
-                  <p className="font-body text-base md:text-lg text-muted-foreground whitespace-pre-line leading-relaxed italic md:not-italic">
+                  <p className="font-body text-base md:text-lg text-muted-foreground whitespace-pre-line leading-relaxed">
                     {p.text}
                   </p>
+                )}
+
+                {p.partners && (
+                  <div className="mt-6 md:max-w-xl text-muted-foreground space-y-3 text-base md:text-lg">
+                    {p.partners.map((partner) => (
+                      <div key={partner.name} className="text-left">
+                        {partner.href ? (
+                          <a href={partner.href} target="_blank" rel="noopener noreferrer" className="text-primary underline">
+                            {partner.name}
+                          </a>
+                        ) : (
+                          <span className="font-medium">{partner.name}</span>
+                        )}
+                        {partner.address && <span className="text-muted-foreground"> &nbsp;|&nbsp; {partner.address}</span>}
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {p.conclusion && (
+                  <p className="mt-6 font-body text-base md:text-lg text-muted-foreground leading-relaxed md:max-w-xl">{p.conclusion}</p>
                 )}
 
                 {p.title === "Paniers" && (

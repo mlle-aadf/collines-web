@@ -1,8 +1,8 @@
+import CookieBanner from "@/components/CookieBanner";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Index from "./pages/Index.tsx";
 import NotFound from "./pages/NotFound.tsx";
-import CookieBanner from "@/components/CookieBanner";
 
 const queryClient = new QueryClient();
 
