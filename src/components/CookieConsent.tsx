@@ -3,7 +3,6 @@ import { Cookie } from "lucide-react";
 import PolicyModal from "./PolicyModal";
 import ConsentManager from "./ConsentManager";
 
-// Helper function to be exported and used in other components (like Footer)
 export const openConsentManager = () => {
   window.dispatchEvent(new CustomEvent("open-consent-manager"));
 };
@@ -14,115 +13,39 @@ const CookieConsent = () => {
   const [isManagerOpen, setIsManagerOpen] = useState(false);
 
   useEffect(() => {
-    // Check for previous consent in localStorage
     const stored = localStorage.getItem("cookie-prefs");
-    const consentValue = stored ? JSON.parse(stored) : null;
+    const prefs = stored ? JSON.parse(stored) : null;
 
-    if (!consentValue) {
-      // Small delay for better UX if no choice made yet
-      const timer = setTimeout(() => {
-        setIsVisible(true);
-      }, 1500);
+    if (!prefs) {
+      const timer = setTimeout(() => setIsVisible(true), 1500);
       return () => clearTimeout(timer);
-    } else {
-      // Re-apply analytics if previously accepted
-      if (consentValue.analytics) {
-        loadAnalytics();
-      }
     }
   }, []);
 
-  // Listen for custom events
   useEffect(() => {
-    const handleReopen = () => setIsVisible(true);
+    const handleReopen = () => setIsManagerOpen(true);
     const handleOpenManager = () => setIsManagerOpen(true);
-
     window.addEventListener("reopen-cookie-consent", handleReopen);
     window.addEventListener("open-consent-manager", handleOpenManager);
-    
     return () => {
       window.removeEventListener("reopen-cookie-consent", handleReopen);
       window.removeEventListener("open-consent-manager", handleOpenManager);
     };
   }, []);
 
-  const loadAnalytics = () => {
-    console.log("🚀 Analytics LOADED: Loi 25 status check passed.");
-    
-    // 1. Create the main script tag
-    if (!document.getElementById('google-analytics')) {
-      const script = document.createElement('script');
-      script.id = 'google-analytics';
-      script.async = true;
-      script.src = `https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX`; // Replace with real ID
-      document.head.appendChild(script);
-
-      // 2. Initialize the dataLayer
-      const inlineScript = document.createElement('script');
-      inlineScript.id = 'ga-init';
-      inlineScript.innerHTML = `
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-XXXXXXXXXX', { 'anonymize_ip': true });
-      `;
-      document.head.appendChild(inlineScript);
-    }
-  };
-
-  const unloadAnalytics = () => {
-    console.log("🛑 Analytics UNLOADED: Consent withdrawn.");
-    
-    // Remove the script tags if they exist
-    const scripts = ['google-analytics', 'ga-init'];
-    scripts.forEach(id => {
-      const el = document.getElementById(id);
-      if (el) el.remove();
-    });
-
-    // Clean up cookies (Google Analytics uses _ga and _gid)
-    const cookies = document.cookie.split(";");
-    for (let i = 0; i < cookies.length; i++) {
-        const cookie = cookies[i];
-        const eqPos = cookie.indexOf("=");
-        const name = eqPos > -1 ? cookie.substring(0, eqPos).trim() : cookie.trim();
-        if (name.startsWith('_ga') || name.startsWith('_gid')) {
-          document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-        }
-    }
-    
-    // Best practice for Loi 25: clear window objects
-    delete (window as any).gtag;
-    delete (window as any).dataLayer;
-  };
-
-  const handleInitialChoice = (choice: "accepted" | "rejected") => {
+  const handleAccept = () => {
     const prefs = {
       essential: true,
-      analytics: choice === "accepted",
-      marketing: choice === "accepted",
       timestamp: new Date().toISOString(),
     };
-    
-    savePrefs(prefs);
-    setIsVisible(false);
-  };
-
-  const savePrefs = (prefs: any) => {
     localStorage.setItem("cookie-prefs", JSON.stringify(prefs));
-    
-    if (prefs.analytics) {
-      loadAnalytics();
-    } else {
-      unloadAnalytics();
-    }
+    setIsVisible(false);
   };
 
   if (!isVisible && !isPolicyOpen && !isManagerOpen) return null;
 
   return (
     <>
-      {/* Initial Tooltip Banner */}
       {isVisible && (
         <div 
           className="fixed bottom-4 right-4 z-[100] animate-fade-in-up w-full max-w-[380px] px-4 md:px-0"
@@ -142,27 +65,27 @@ const CookieConsent = () => {
               </div>
               
               <p id="cookie-desc" className="font-body text-sm text-[#4A4A4A] leading-relaxed">
-                Nous utilisons des témoins pour analyser le trafic. Acceptez-vous ?{" "}
+                Ce site utilise des témoins essentiels uniquement pour assurer son bon fonctionnement.{" "}
                 <button 
                   onClick={() => setIsPolicyOpen(true)}
                   className="text-[#23622F] font-bold underline hover:text-[#184521] transition-colors"
                 >
-                  Voir politique
+                  Détails
                 </button>
               </p>
 
               <div className="flex items-center gap-3 w-full">
                 <button
-                  onClick={() => handleInitialChoice("rejected")}
-                  className="flex-1 bg-[#F5F5F5] text-[#4A4A4A] font-body font-bold py-3 px-4 rounded-xl hover:bg-[#EAEAEA] transition-all duration-300 border border-[#DEDEDE]"
+                  onClick={() => setIsManagerOpen(true)}
+                  className="flex-1 bg-[#F5F5F5] text-[#4A4A4A] font-body font-bold py-3 px-4 rounded-xl hover:bg-[#EAEAEA] transition-all duration-300 border border-[#DEDEDE] text-xs"
                 >
-                  Refuser
+                  Voir les préférences
                 </button>
                 <button
-                  onClick={() => handleInitialChoice("accepted")}
-                  className="flex-1 bg-[#23622F] text-white font-body font-bold py-3 px-4 rounded-xl hover:bg-[#184521] transition-all duration-300 shadow-sm"
+                  onClick={handleAccept}
+                  className="flex-1 bg-[#23622F] text-white font-body font-bold py-3 px-4 rounded-xl hover:bg-[#184521] transition-all duration-300 shadow-sm text-xs"
                 >
-                  Accepter tout
+                  Accepter
                 </button>
               </div>
             </div>
@@ -170,21 +93,15 @@ const CookieConsent = () => {
         </div>
       )}
 
-      {/* Policy View Modal */}
       <PolicyModal 
         isOpen={isPolicyOpen} 
         onClose={() => setIsPolicyOpen(false)} 
         onReopenConsent={() => setIsManagerOpen(true)}
       />
 
-      {/* Granular Consent Manager */}
       <ConsentManager 
         isOpen={isManagerOpen} 
         onClose={() => setIsManagerOpen(false)} 
-        onSave={(prefs) => {
-          savePrefs({ ...prefs, timestamp: new Date().toISOString() });
-          setIsVisible(false);
-        }}
       />
     </>
   );
