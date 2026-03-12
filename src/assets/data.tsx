@@ -85,7 +85,7 @@ export const products = {
   {
     title: "Kiosque à la ferme",
     subtitle: "Libre-service 7/7",
-    text: `Le Marché de la Ferme\u202F: Fraîcheur en toute liberté
+    text: `Le Marché de la Ferme\u202F: Fraîcheur en toute liberté\n
   Dès le 1er juillet, nous vous ouvrons les portes de notre kiosque libre-service, situé directement dans notre bâtiment principal. Pensé pour s'adapter à votre horaire, il est ouvert tous les jours de 9h à 18h.
 
   Vous y découvrirez chaque jour une sélection de nos plus belles récoltes. Notre concept repose sur une valeur qui nous tient à cœur\u202F: la confiance. Vous choisissez vos légumes et déposez votre paiement en toute simplicité (comptant uniquement). C'est le raccourci idéal entre nos champs et votre cuisine!`,
