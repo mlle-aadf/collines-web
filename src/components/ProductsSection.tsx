@@ -9,30 +9,28 @@ const products = [
     subtitle: "Abonnement saisonnier",
     text: `Bénéficiez d'un accès privilégié à nos produits toute la saison et profitez d'un rabais de 5 à 10 % (payable d'avance à l'inscription).
 
-QUAND : 15 semaines (29 juin au 5 octobre 2026)
-RÉCUPÉRATION : Les lundis entre 15h30 et 18h
-LIEU : Sous le chapiteau du marché public (222 Av. Dallaire)
-
 Abonnements disponibles :
 - Le mini: 23$/semaine (Total: 345$)
 - Le régulier: 35$/semaine (Total: 525$)
 - Le grand: 45$/semaine (Total: 675$)`,
+    features: [
+      { name: "Quand :", desc: "15 semaines (29 juin au 5 octobre 2026)" },
+      { name: "Récupération :", desc: "Les lundis entre 15h30 et 18h" },
+      { name: "Lieu :", desc: "Sous le chapiteau du marché public (222 Av. Dallaire)" }
+    ],
     image: paniersImg,
   },
   {
     title: "Marché public",
     subtitle: "Directement du producteur",
     marketLink: "https://www.facebook.com/MPRouynNoranda/?locale=fr_CA",
-    text: `Retrouvez toute la saveur de nos champs au cœur de la ville ! Tous les mercredis de la saison estivale, nous vous accueillons avec nos plus belles récoltes.
-
-Découvrez : Nos nouveautés et variétés de saison.
-
-Échangez : Posez vos questions sur notre agriculture durable.
-
-Liberté : Choisissez exactement ce dont vous avez besoin.
-
-Paiements faciles : Argent comptant, cartes de débit et de crédit acceptées.
-`,
+    text: `Retrouvez toute la saveur de nos champs au cœur de la ville ! Tous les mercredis de la saison estivale, nous vous accueillons avec nos plus belles récoltes.`,
+    features: [
+      { name: "Découvrez :", desc: "Nos nouveautés et variétés de saison." },
+      { name: "Échangez :", desc: "Posez vos questions sur notre agriculture durable." },
+      { name: "Liberté :", desc: "Choisissez exactement ce dont vous avez besoin." },
+      { name: "Paiements faciles :", desc: "Argent comptant, cartes de débit et de crédit acceptées." }
+    ],
     image: marcheImg,
   },
   {
@@ -125,6 +123,16 @@ const ProductsSection = () => {
                   <p className="font-body text-base md:text-lg text-muted-foreground whitespace-pre-line leading-relaxed">
                     {p.text}
                   </p>
+                )}
+
+                {p.features && (
+                  <ul className="mt-4 list-none pl-0 space-y-3 font-body text-base md:text-lg text-muted-foreground md:max-w-xl">
+                    {p.features.map((feature, i) => (
+                      <li key={i}>
+                        <strong>{feature.name}</strong> {feature.desc}
+                      </li>
+                    ))}
+                  </ul>
                 )}
 
                 {p.partners && (

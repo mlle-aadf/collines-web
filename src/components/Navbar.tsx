@@ -56,51 +56,53 @@ const Navbar = () => {
         </div>
 
         {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-2 lg:gap-4">
-          <button
-            onClick={() => scrollTo("produits")}
-            className={`font-body text-sm lg:text-base font-semibold px-3 py-2 rounded-full transition-all duration-300 ${isScrolled
-              ? "text-foreground hover:bg-primary/5 hover:text-primary"
-              : "text-primary-foreground hover:bg-white hover:text-primary"
-              }`}
-          >
-            Nos produits
-          </button>
-          <button
-            onClick={() => scrollTo("abonnement")}
-            className={`font-body text-sm lg:text-base font-semibold px-3 py-2 rounded-full transition-all duration-300 ${isScrolled
-              ? "text-foreground hover:bg-primary/5 hover:text-primary"
-              : "text-primary-foreground hover:bg-white hover:text-primary"
-              }`}
-          >
-            Abonnement
-          </button>
-          <button
-            onClick={() => scrollTo("infolettre")}
-            className={`font-body text-sm lg:text-base font-semibold px-3 py-2 rounded-full transition-all duration-300 ${isScrolled
-              ? "text-foreground hover:bg-primary/5 hover:text-primary"
-              : "text-primary-foreground hover:bg-white hover:text-primary"
-              }`}
-          >
-            Infolettre
-          </button>
-          <button
-            onClick={() => scrollTo("contact")}
-            className={`font-body text-sm lg:text-base font-semibold px-3 py-2 rounded-full transition-all duration-300 ${isScrolled
-              ? "text-foreground hover:bg-primary/5 hover:text-primary"
-              : "text-primary-foreground hover:bg-white hover:text-primary"
-              }`}
-          >
-            Nous rejoindre
-          </button>
-
-          <div className="w-px h-6 bg-white/20 mx-1 hidden md:block"></div>
-
+        <div className="hidden md:flex items-center gap-1 lg:gap-2">
+          <div className="flex items-center gap-1 lg:gap-3">
+            <button
+              onClick={() => scrollTo("produits")}
+              className={`font-body text-sm lg:text-base font-semibold px-3 py-2 rounded-full transition-all duration-300 ${isScrolled
+                ? "text-foreground hover:bg-primary/5 hover:text-primary"
+                : "text-primary-foreground hover:bg-white hover:text-primary"
+                }`}
+            >
+              Nos produits
+            </button>
+            <button
+              onClick={() => scrollTo("abonnement")}
+              className={`font-body text-sm lg:text-base font-semibold px-3 py-2 rounded-full transition-all duration-300 ${isScrolled
+                ? "text-foreground hover:bg-primary/5 hover:text-primary"
+                : "text-primary-foreground hover:bg-white hover:text-primary"
+                }`}
+            >
+              Abonnement
+            </button>
+            <button
+              onClick={() => scrollTo("infolettre")}
+              className={`font-body text-sm lg:text-base font-semibold px-3 py-2 rounded-full transition-all duration-300 ${isScrolled
+                ? "text-foreground hover:bg-primary/5 hover:text-primary"
+                : "text-primary-foreground hover:bg-white hover:text-primary"
+                }`}
+            >
+              Infolettre
+            </button>
+            <button
+              onClick={() => scrollTo("contact")}
+              className={`font-body text-sm lg:text-base font-semibold px-3 py-2 rounded-full transition-all duration-300 ${isScrolled
+                ? "text-foreground hover:bg-primary/5 hover:text-primary"
+                : "text-primary-foreground hover:bg-white hover:text-primary"
+                }`}
+            >
+              Nous rejoindre
+            </button>
+          </div>
+          
+          <div className={`w-px h-5 mx-1 hidden md:block transition-colors duration-300 ${isScrolled ? "bg-border" : "bg-white/20"}`}></div>
+          
           <a
             href="https://www.facebook.com/people/Ferme-des-collines/100069650700211/?sk=about"
             target="_blank"
             rel="noopener noreferrer"
-            className={`p-2 xl:px-4 rounded-full transition-all duration-300 ${isScrolled
+            className={`p-2 rounded-full transition-all duration-300 ${isScrolled
               ? "text-foreground hover:bg-primary/5 hover:text-primary"
               : "text-primary-foreground hover:bg-white hover:text-primary"
               }`}

@@ -1,5 +1,5 @@
 import logoFull from "@/assets/logo-full.png";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, Phone, Facebook } from "lucide-react";
 import { openPrivacyPolicy } from "./CookieBanner";
 
 const FooterSection = () => {
@@ -20,7 +20,7 @@ const FooterSection = () => {
               Pour nous rejoindre
             </h2>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 font-body text-muted-foreground">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 font-body text-muted-foreground">
               <a
                 href="https://maps.app.goo.gl/FDmBtcfHhw9VXSdR8"
                 target="_blank"
@@ -59,6 +59,21 @@ const FooterSection = () => {
                 <div>
                   <span className="block font-bold text-foreground text-sm uppercase tracking-wider mb-1">Téléphone</span>
                   <span className="text-xs">+1 (819) 277-7446</span>
+                </div>
+              </a>
+
+              <a
+                href="https://www.facebook.com/people/Ferme-des-collines/100069650700211/?sk=about"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-3 p-4 rounded-xl bg-white/60 hover:bg-white shadow-sm border border-border transition-all duration-300 hover:shadow-md group"
+              >
+                <div className="shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <Facebook size={18} className="text-primary" />
+                </div>
+                <div>
+                  <span className="block font-bold text-foreground text-sm uppercase tracking-wider mb-1">Facebook</span>
+                  <span className="text-xs">Rejoignez la communauté</span>
                 </div>
               </a>
             </div>
