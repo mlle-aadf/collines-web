@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Facebook } from "lucide-react";
 import logoWhite from "@/assets/logo-white.png";
 import logoColor from "@/assets/logo-color.png";
 
@@ -56,10 +56,10 @@ const Navbar = () => {
         </div>
 
         {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden md:flex items-center gap-2 lg:gap-4">
           <button
             onClick={() => scrollTo("produits")}
-            className={`font-body text-base font-semibold px-4 py-2 rounded-full transition-all duration-300 ${isScrolled
+            className={`font-body text-sm lg:text-base font-semibold px-3 py-2 rounded-full transition-all duration-300 ${isScrolled
               ? "text-foreground hover:bg-primary/5 hover:text-primary"
               : "text-primary-foreground hover:bg-white hover:text-primary"
               }`}
@@ -67,14 +67,47 @@ const Navbar = () => {
             Nos produits
           </button>
           <button
+            onClick={() => scrollTo("abonnement")}
+            className={`font-body text-sm lg:text-base font-semibold px-3 py-2 rounded-full transition-all duration-300 ${isScrolled
+              ? "text-foreground hover:bg-primary/5 hover:text-primary"
+              : "text-primary-foreground hover:bg-white hover:text-primary"
+              }`}
+          >
+            Abonnement
+          </button>
+          <button
+            onClick={() => scrollTo("infolettre")}
+            className={`font-body text-sm lg:text-base font-semibold px-3 py-2 rounded-full transition-all duration-300 ${isScrolled
+              ? "text-foreground hover:bg-primary/5 hover:text-primary"
+              : "text-primary-foreground hover:bg-white hover:text-primary"
+              }`}
+          >
+            Infolettre
+          </button>
+          <button
             onClick={() => scrollTo("contact")}
-            className={`font-body text-base font-semibold px-4 py-2 rounded-full transition-all duration-300 ${isScrolled
+            className={`font-body text-sm lg:text-base font-semibold px-3 py-2 rounded-full transition-all duration-300 ${isScrolled
               ? "text-foreground hover:bg-primary/5 hover:text-primary"
               : "text-primary-foreground hover:bg-white hover:text-primary"
               }`}
           >
             Nous rejoindre
           </button>
+
+          <div className="w-px h-6 bg-white/20 mx-1 hidden md:block"></div>
+
+          <a
+            href="https://www.facebook.com/people/Ferme-des-collines/100069650700211/?sk=about"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`p-2 xl:px-4 rounded-full transition-all duration-300 ${isScrolled
+              ? "text-foreground hover:bg-primary/5 hover:text-primary"
+              : "text-primary-foreground hover:bg-white hover:text-primary"
+              }`}
+            aria-label="Facebook"
+          >
+            <Facebook size={20} />
+          </a>
         </div>
 
         {/* Mobile toggle */}
@@ -90,7 +123,7 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       <div
-        className={`md:hidden overflow-hidden transition-all duration-300 bg-background/95 backdrop-blur-md ${isMobileOpen ? "max-h-40" : "max-h-0"
+        className={`md:hidden overflow-hidden transition-all duration-300 bg-background/95 backdrop-blur-md ${isMobileOpen ? "max-h-[300px]" : "max-h-0"
           }`}
       >
         <div className="container flex flex-col gap-4 py-4">
@@ -101,11 +134,33 @@ const Navbar = () => {
             Nos produits
           </button>
           <button
+            onClick={() => scrollTo("abonnement")}
+            className="font-body text-sm font-medium text-foreground text-left hover:text-primary transition-colors"
+          >
+            Abonnement
+          </button>
+          <button
+            onClick={() => scrollTo("infolettre")}
+            className="font-body text-sm font-medium text-foreground text-left hover:text-primary transition-colors"
+          >
+            Infolettre
+          </button>
+          <button
             onClick={() => scrollTo("contact")}
             className="font-body text-sm font-medium text-foreground text-left hover:text-primary transition-colors"
           >
             Nous rejoindre
           </button>
+          <div className="h-px bg-border/60 w-full my-2"></div>
+          <a
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-body text-sm font-medium text-primary text-left flex items-center gap-2 hover:text-secondary transition-colors pb-2"
+          >
+            <Facebook size={18} />
+            Suivez-nous sur Facebook
+          </a>
         </div>
       </div>
     </nav>

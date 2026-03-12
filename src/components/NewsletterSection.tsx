@@ -2,7 +2,7 @@ import newsletterImg from "@/assets/newsletter-image.jpg";
 
 const NewsletterSection = () => {
   return (
-    <section className="py-20 md:py-32 bg-white border-t border-border">
+    <section id="infolettre" className="py-20 md:py-32 bg-white border-t border-border">
       <div className="container">
         <div className="flex flex-col md:flex-row-reverse gap-10 md:gap-16 items-center">
           {/* Content side (Right on desktop) */}

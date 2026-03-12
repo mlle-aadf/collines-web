@@ -75,6 +75,7 @@ const ProductsSection = () => {
           {products.map((p, index) => (
             <div
               key={p.title}
+              id={p.title === "Paniers" ? "abonnement" : undefined}
               className={`flex flex-col gap-10 md:gap-16 items-center ${index % 2 === 1 ? "md:flex-row-reverse" : "md:flex-row"
                 }`}
             >
