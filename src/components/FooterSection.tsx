@@ -2,7 +2,7 @@ import logoFull from "@/assets/logo-full.png";
 import { Mail, MapPin, Phone, Facebook } from "lucide-react";
 import { openPrivacyPolicy } from "./CookieBanner";
 
-const footerData = {
+const footer = {
   title: "Pour nous rejoindre",
   copyright: `© ${new Date().getFullYear()} LA FERME DES COLLINES. Tous droits réservés.`,
   policyLinkText: "Politique de confidentialité",
@@ -53,11 +53,11 @@ const FooterSection = () => {
 
           <div className="flex flex-col gap-6">
             <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground text-center md:text-left">
-              {footerData.title}
+              {footer.title}
             </h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 font-body text-muted-foreground">
-              {footerData.contactMethods.map((method) => {
+              {footer.contactMethods.map((method) => {
                 const Icon = method.icon;
                 return (
                   <a
@@ -85,14 +85,14 @@ const FooterSection = () => {
 
         <div className="mt-12 pt-6 border-t border-border/60 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="font-body text-[10px] text-center text-muted-foreground/60 tracking-widest uppercase">
-            {footerData.copyright}
+            {footer.copyright}
           </p>
           <div className="flex gap-6">
             <button
               onClick={openPrivacyPolicy}
               className="font-body text-[10px] text-muted-foreground/60 tracking-widest uppercase hover:text-primary transition-colors"
             >
-              {footerData.policyLinkText}
+              {footer.policyLinkText}
             </button>
           </div>
         </div>

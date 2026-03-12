@@ -3,7 +3,7 @@ import { Menu, X, Facebook } from "lucide-react";
 import logoWhite from "@/assets/logo-white.png";
 import logoColor from "@/assets/logo-color.png";
 
-const navData = {
+const nav = {
   farmName: "LA FERME DES COLLINES",
   logoAlt: "La Ferme des Collines",
   links: [
@@ -51,7 +51,7 @@ const Navbar = () => {
           >
             <img
               src={isScrolled ? logoColor : logoWhite}
-              alt={navData.logoAlt}
+              alt={nav.logoAlt}
               className="h-8 min-[390px]:h-10 md:h-12 w-auto transition-all duration-300"
             />
           </button>
@@ -66,7 +66,7 @@ const Navbar = () => {
               className={`font-heading text-[12px] min-[330px]:text-[13px] min-[400px]:text-sm sm:text-base md:text-xl font-bold tracking-wider sm:tracking-widest whitespace-nowrap transition-colors duration-300 ${isScrolled ? "text-foreground" : "text-primary-foreground"
                 }`}
             >
-              {navData.farmName}
+              {nav.farmName}
             </span>
           </button>
         </div>
@@ -74,7 +74,7 @@ const Navbar = () => {
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-1 lg:gap-2">
           <div className="flex items-center gap-1 lg:gap-3">
-            {navData.links.map((link) => (
+            {nav.links.map((link) => (
               <button
                 key={link.id}
                 onClick={() => scrollTo(link.id)}
@@ -91,14 +91,14 @@ const Navbar = () => {
           <div className={`w-px h-5 mx-1 hidden md:block transition-colors duration-300 ${isScrolled ? "bg-border" : "bg-white/20"}`}></div>
           
           <a
-            href={navData.facebook.url}
+            href={nav.facebook.url}
             target="_blank"
             rel="noopener noreferrer"
             className={`p-2 rounded-full transition-all duration-300 ${isScrolled
               ? "text-foreground hover:bg-primary/5 hover:text-primary"
               : "text-primary-foreground hover:bg-white hover:text-primary"
               }`}
-            aria-label={navData.facebook.ariaLabel}
+            aria-label={nav.facebook.ariaLabel}
           >
             <Facebook size={20} />
           </a>
@@ -121,7 +121,7 @@ const Navbar = () => {
           }`}
       >
         <div className="container flex flex-col gap-4 py-4">
-          {navData.links.map((link) => (
+          {nav.links.map((link) => (
             <button
               key={link.id}
               onClick={() => scrollTo(link.id)}
@@ -132,13 +132,13 @@ const Navbar = () => {
           ))}
           <div className="h-px bg-border/60 w-full my-2"></div>
           <a
-            href={navData.facebook.url}
+            href={nav.facebook.url}
             target="_blank"
             rel="noopener noreferrer"
             className="font-body text-sm font-medium text-primary text-left flex items-center gap-2 hover:text-secondary transition-colors pb-2"
           >
             <Facebook size={18} />
-            {navData.facebook.mobileLabel}
+            {nav.facebook.mobileLabel}
           </a>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import { ShieldCheck, X } from "lucide-react";
 import { useEffect, useRef } from "react";
 
-const policyData = {
+const policy = {
   title: "Politique de confidentialité",
   closeAriaLabel: "Fermer",
   lastUpdated: "Dernière mise à jour : 2026-03-11",
@@ -70,14 +70,14 @@ const PolicyModal = ({ isOpen, onClose }: PolicyModalProps) => {
           <div className="flex items-center gap-3 text-[#23622F]">
             <ShieldCheck size={24} />
             <h2 id="modal-title" className="font-heading font-bold text-xl md:text-2xl text-[#1A1A1A]">
-              {policyData.title}
+              {policy.title}
             </h2>
           </div>
           <button 
             ref={firstFocusRef}
             onClick={onClose}
             className="p-2 hover:bg-gray-100 rounded-full transition-colors text-gray-500"
-            aria-label={policyData.closeAriaLabel}
+            aria-label={policy.closeAriaLabel}
           >
             <X size={20} />
           </button>
@@ -85,35 +85,35 @@ const PolicyModal = ({ isOpen, onClose }: PolicyModalProps) => {
         
         <div className="p-6 md:p-8 max-h-[60vh] overflow-y-auto font-body text-sm text-[#4A4A4A] space-y-6">
           <div>
-            <p className="font-bold text-[#1A1A1A]">{policyData.lastUpdated}</p>
+            <p className="font-bold text-[#1A1A1A]">{policy.lastUpdated}</p>
           </div>
 
           <div className="space-y-2">
-            <h4 className="font-bold text-[#1A1A1A]">{policyData.sections[0].title}</h4>
+            <h4 className="font-bold text-[#1A1A1A]">{policy.sections[0].title}</h4>
             <p>
-              {policyData.sections[0].content}
+              {policy.sections[0].content}
             </p>
           </div>
 
           <div className="space-y-2">
-            <h4 className="font-bold text-[#1A1A1A]">{policyData.sections[1].title}</h4>
+            <h4 className="font-bold text-[#1A1A1A]">{policy.sections[1].title}</h4>
             <ul className="list-disc pl-5 space-y-1">
-              {policyData.sections[1].list?.map((item, index) => (
+              {policy.sections[1].list?.map((item, index) => (
                 <li key={index}>{item}</li>
               ))}
             </ul>
-            <p className="pt-1">{policyData.sections[1].footer}</p>
+            <p className="pt-1">{policy.sections[1].footer}</p>
           </div>
 
           <div className="bg-blue-50 border-l-4 border-blue-400 p-4 mt-6">
-            <p className="text-blue-800 font-semibold text-xs">{policyData.technicalNote.title}</p>
+            <p className="text-blue-800 font-semibold text-xs">{policy.technicalNote.title}</p>
             <p className="text-blue-700 text-xs mt-1">
-              {policyData.technicalNote.content}
+              {policy.technicalNote.content}
             </p>
           </div>
 
           <div className="pt-2 text-xs">
-            <p><span className="font-bold text-[#1A1A1A]">{policyData.contact.label}</span> {policyData.contact.email}</p>
+            <p><span className="font-bold text-[#1A1A1A]">{policy.contact.label}</span> {policy.contact.email}</p>
           </div>
         </div>
 
@@ -122,7 +122,7 @@ const PolicyModal = ({ isOpen, onClose }: PolicyModalProps) => {
             onClick={onClose}
             className="bg-[#23622F] text-white font-body font-bold py-3 px-8 rounded-xl hover:bg-[#184521] transition-all focus:outline-none focus:ring-4 focus:ring-[#23622F]/40"
           >
-            {policyData.buttonText}
+            {policy.buttonText}
           </button>
         </div>
       </div>

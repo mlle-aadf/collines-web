@@ -3,11 +3,9 @@ import kiosqueImg from "@/assets/product-kiosque.jpg";
 import marcheImg from "@/assets/product-marche.jpg";
 import paniersImg from "@/assets/product-paniers.jpg";
 
-const sectionData = {
-  title: "Où trouver nos produits"
-};
-
-const products = [
+const products = {
+  title: "Où trouver nos produits",
+  items: [
   {
     title: "Paniers",
     subtitle: "Abonnement saisonnier",
@@ -68,7 +66,8 @@ Parce que nous croyons à la force de notre communauté, nos récoltes voyagent 
     conclusion: `Un gage de qualité : Repérez notre logo ! C’est votre garantie d’un produit local, cueilli avec soin et livré avec toute sa vitalité.`,
     image: detaillantImg,
   },
-];
+  ]
+};
 
 const ProductsSection = () => {
   return (
@@ -76,13 +75,13 @@ const ProductsSection = () => {
       <div className="container">
         <header className="max-w-3xl mx-auto text-center mb-20 md:mb-28">
           <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-            {sectionData.title}
+            {products.title}
           </h2>
           <div className="w-20 h-1.5 bg-secondary mx-auto rounded-full" />
         </header>
 
         <div className="flex flex-col gap-24 md:gap-40">
-          {products.map((p, index) => (
+          {products.items.map((p, index) => (
             <div
               key={p.title}
               id={p.title === "Paniers" ? "abonnement" : undefined}

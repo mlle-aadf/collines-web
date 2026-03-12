@@ -1,6 +1,6 @@
 import farmImage from "@/assets/farm-about.jpg";
 
-const aboutData = {
+const about = {
   title: "Bienvenue à La Ferme des Collines 🌿",
   description: "Située au sud de Rouyn-Noranda, la Ferme des Collines est une entreprise familiale née d’un désir tout simple :\ncultiver des légumes savoureux pour faciliter la vie des familles d'ici.",
   features: [
@@ -18,14 +18,14 @@ const AboutSection = () => {
         <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
           <div className="md:order-1">
             <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl font-semibold text-foreground mb-6">
-              {aboutData.title}
+              {about.title}
             </h2>
             <p className="font-body text-base md:text-lg text-muted-foreground leading-relaxed md:leading-loose md:max-w-xl whitespace-pre-line">
-              {aboutData.description}
+              {about.description}
             </p>
 
             <ul className="list-none pl-0 space-y-3 mt-6 text-muted-foreground md:max-w-xl">
-              {aboutData.features.map((feature, index) => (
+              {about.features.map((feature, index) => (
                 <li key={index}>
                   <strong>{feature.name}</strong> {feature.desc}
                 </li>
@@ -35,7 +35,7 @@ const AboutSection = () => {
           <div className="rounded-lg overflow-hidden md:order-2 shadow-lg">
             <img
               src={farmImage}
-              alt={aboutData.imageAlt}
+              alt={about.imageAlt}
               className="w-full h-80 md:h-[420px] object-cover"
               loading="lazy"
             />

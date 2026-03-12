@@ -1,6 +1,6 @@
 import newsletterImg from "@/assets/newsletter-image.jpg";
 
-const newsletterData = {
+const newsletter = {
   subtitle: "Infolettre",
   title: "Restez branchés sur la saison!",
   description: "Inscrivez-vous à l'infolettre de La Ferme des Collines pour recevoir nos actualités, nos calendriers de récoltes et des astuces pour cuisiner vos légumes frais. C'est simple, local et directement dans votre boîte de réception.",
@@ -17,21 +17,21 @@ const NewsletterSection = () => {
           {/* Content side (Right on desktop) */}
           <div className="w-full md:w-1/2 flex flex-col items-center text-center md:items-start md:text-left">
             <span className="font-body text-secondary font-bold tracking-widest uppercase text-sm mb-3">
-              {newsletterData.subtitle}
+              {newsletter.subtitle}
             </span>
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-6">
-              {newsletterData.title}
+              {newsletter.title}
             </h2>
             <p className="font-body text-base md:text-lg text-muted-foreground leading-relaxed mb-8">
-              {newsletterData.description}
+              {newsletter.description}
             </p>
             <a
-              href={newsletterData.buttonLink}
+              href={newsletter.buttonLink}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-primary text-primary-foreground font-body font-medium text-sm px-8 py-3 rounded-full hover:bg-secondary transition-colors duration-300"
             >
-              {newsletterData.buttonText}
+              {newsletter.buttonText}
             </a>
           </div>
 
@@ -42,7 +42,7 @@ const NewsletterSection = () => {
               <div className="rounded-2xl overflow-hidden shadow-xl aspect-[4/3]">
                 <img
                   src={newsletterImg}
-                  alt={newsletterData.imageAlt}
+                  alt={newsletter.imageAlt}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   loading="lazy"
                 />

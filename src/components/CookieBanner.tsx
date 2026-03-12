@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Cookie } from "lucide-react";
 import PolicyModal from "./PolicyModal";
 
-const cookieBannerData = {
+const cookieBanner = {
   title: "Témoins et confidentialité",
   description: "Ce site utilise des témoins essentiels uniquement pour assurer son bon fonctionnement.",
   policyLinkText: "Politique de confidentialité",
@@ -63,17 +63,17 @@ const CookieBanner = () => {
                   <Cookie size={20} />
                 </div>
                 <h3 id="cookie-title" className="font-heading font-bold text-lg text-[#1A1A1A]">
-                  {cookieBannerData.title}
+                  {cookieBanner.title}
                 </h3>
               </div>
               
               <p id="cookie-desc" className="font-body text-sm text-[#4A4A4A] leading-relaxed">
-                {cookieBannerData.description}{" "}
+                {cookieBanner.description}{" "}
                 <button 
                   onClick={() => setIsPolicyOpen(true)}
                   className="text-[#23622F] font-bold underline hover:text-[#184521] transition-colors"
                 >
-                  {cookieBannerData.policyLinkText}
+                  {cookieBanner.policyLinkText}
                 </button>
               </p>
 
@@ -82,7 +82,7 @@ const CookieBanner = () => {
                   onClick={handleAccept}
                   className="w-full bg-[#23622F] text-white font-body font-bold py-3 px-4 rounded-xl hover:bg-[#184521] transition-all duration-300 shadow-sm text-sm"
                 >
-                  {cookieBannerData.acceptButtonText}
+                  {cookieBanner.acceptButtonText}
                 </button>
               </div>
             </div>
