@@ -1,6 +1,35 @@
 import { ShieldCheck, X } from "lucide-react";
 import { useEffect, useRef } from "react";
 
+const policyData = {
+  title: "Politique de confidentialité",
+  closeAriaLabel: "Fermer",
+  lastUpdated: "Dernière mise à jour : 2026-03-11",
+  sections: [
+    {
+      title: "Engagement Loi 25",
+      content: "Conformément à la Loi 25 du Québec, nous protégeons vos données personnelles."
+    },
+    {
+      title: "Témoins essentiels uniquement",
+      list: [
+        "Fonctionnement technique du site",
+        "Sécurité des sessions"
+      ],
+      footer: "Aucun suivi, analyse ou marketing."
+    }
+  ],
+  technicalNote: {
+    title: "Note technique",
+    content: "Votre choix est conservé en session (supprimé à la fermeture de l'onglet)."
+  },
+  contact: {
+    label: "Contact :",
+    email: "info@fermedescollines.ca"
+  },
+  buttonText: "J'ai compris"
+};
+
 interface PolicyModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -41,14 +70,14 @@ const PolicyModal = ({ isOpen, onClose }: PolicyModalProps) => {
           <div className="flex items-center gap-3 text-[#23622F]">
             <ShieldCheck size={24} />
             <h2 id="modal-title" className="font-heading font-bold text-xl md:text-2xl text-[#1A1A1A]">
-              Politique de confidentialité
+              {policyData.title}
             </h2>
           </div>
           <button 
             ref={firstFocusRef}
             onClick={onClose}
             className="p-2 hover:bg-gray-100 rounded-full transition-colors text-gray-500"
-            aria-label="Fermer"
+            aria-label={policyData.closeAriaLabel}
           >
             <X size={20} />
           </button>
@@ -56,34 +85,35 @@ const PolicyModal = ({ isOpen, onClose }: PolicyModalProps) => {
         
         <div className="p-6 md:p-8 max-h-[60vh] overflow-y-auto font-body text-sm text-[#4A4A4A] space-y-6">
           <div>
-            <p className="font-bold text-[#1A1A1A]">Dernière mise à jour : 2026-03-11</p>
+            <p className="font-bold text-[#1A1A1A]">{policyData.lastUpdated}</p>
           </div>
 
           <div className="space-y-2">
-            <h4 className="font-bold text-[#1A1A1A]">Engagement Loi 25</h4>
+            <h4 className="font-bold text-[#1A1A1A]">{policyData.sections[0].title}</h4>
             <p>
-              Conformément à la Loi 25 du Québec, nous protégeons vos données personnelles.
+              {policyData.sections[0].content}
             </p>
           </div>
 
           <div className="space-y-2">
-            <h4 className="font-bold text-[#1A1A1A]">Témoins essentiels uniquement</h4>
+            <h4 className="font-bold text-[#1A1A1A]">{policyData.sections[1].title}</h4>
             <ul className="list-disc pl-5 space-y-1">
-              <li>Fonctionnement technique du site</li>
-              <li>Sécurité des sessions</li>
+              {policyData.sections[1].list?.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
             </ul>
-            <p className="pt-1">Aucun suivi, analyse ou marketing.</p>
+            <p className="pt-1">{policyData.sections[1].footer}</p>
           </div>
 
           <div className="bg-blue-50 border-l-4 border-blue-400 p-4 mt-6">
-            <p className="text-blue-800 font-semibold text-xs">Note technique</p>
+            <p className="text-blue-800 font-semibold text-xs">{policyData.technicalNote.title}</p>
             <p className="text-blue-700 text-xs mt-1">
-              Votre choix est conservé en session (supprimé à la fermeture de l'onglet).
+              {policyData.technicalNote.content}
             </p>
           </div>
 
           <div className="pt-2 text-xs">
-            <p><span className="font-bold text-[#1A1A1A]">Contact :</span> info@fermedescollines.ca</p>
+            <p><span className="font-bold text-[#1A1A1A]">{policyData.contact.label}</span> {policyData.contact.email}</p>
           </div>
         </div>
 
@@ -92,7 +122,7 @@ const PolicyModal = ({ isOpen, onClose }: PolicyModalProps) => {
             onClick={onClose}
             className="bg-[#23622F] text-white font-body font-bold py-3 px-8 rounded-xl hover:bg-[#184521] transition-all focus:outline-none focus:ring-4 focus:ring-[#23622F]/40"
           >
-            J'ai compris
+            {policyData.buttonText}
           </button>
         </div>
       </div>

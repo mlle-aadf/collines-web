@@ -3,6 +3,10 @@ import kiosqueImg from "@/assets/product-kiosque.jpg";
 import marcheImg from "@/assets/product-marche.jpg";
 import paniersImg from "@/assets/product-paniers.jpg";
 
+const sectionData = {
+  title: "Où trouver nos produits"
+};
+
 const products = [
   {
     title: "Paniers",
@@ -18,12 +22,20 @@ Abonnements disponibles :
       { name: "Récupération :", desc: "Les lundis entre 15h30 et 18h" },
       { name: "Lieu :", desc: "Sous le chapiteau du marché public (222 Av. Dallaire)" }
     ],
+    actionButton: {
+      text: "Réserver mon panier",
+      href: "https://forms.gle/5XdKBtnyURd29b3E9"
+    },
     image: paniersImg,
   },
   {
     title: "Marché public",
     subtitle: "Directement du producteur",
-    marketLink: "https://www.facebook.com/MPRouynNoranda/?locale=fr_CA",
+    marketInfo: {
+      prefix: "Rendez-vous hebdomadaire : ",
+      linkText: "Le Marché public de Rouyn-Noranda",
+      href: "https://www.facebook.com/MPRouynNoranda/?locale=fr_CA"
+    },
     text: `Retrouvez toute la saveur de nos champs au cœur de la ville ! Tous les mercredis de la saison estivale, nous vous accueillons avec nos plus belles récoltes.`,
     features: [
       { name: "Découvrez :", desc: "Nos nouveautés et variétés de saison." },
@@ -64,7 +76,7 @@ const ProductsSection = () => {
       <div className="container">
         <header className="max-w-3xl mx-auto text-center mb-20 md:mb-28">
           <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-            Où trouver nos produits
+            {sectionData.title}
           </h2>
           <div className="w-20 h-1.5 bg-secondary mx-auto rounded-full" />
         </header>
@@ -100,17 +112,17 @@ const ProductsSection = () => {
                 <h3 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-6">
                   {p.title}
                 </h3>
-                {p.marketLink ? (
+                {p.marketInfo ? (
                   <>
                     <p className="font-body text-base md:text-lg text-muted-foreground leading-relaxed md:leading-loose md:max-w-xl">
-                      Rendez-vous hebdomadaire :{' '}
+                      {p.marketInfo.prefix}
                       <a
-                        href={p.marketLink}
+                        href={p.marketInfo.href}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-primary underline"
                       >
-                        Le Marché public de Rouyn-Noranda
+                        {p.marketInfo.linkText}
                       </a>{' '}
                       🧺
                     </p>
@@ -156,14 +168,14 @@ const ProductsSection = () => {
                   <p className="mt-6 font-body text-base md:text-lg text-muted-foreground leading-relaxed md:max-w-xl">{p.conclusion}</p>
                 )}
 
-                {p.title === "Paniers" && (
+                {p.actionButton && (
                   <a
-                    href="https://forms.gle/5XdKBtnyURd29b3E9"
+                    href={p.actionButton.href}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="mt-8 inline-block bg-primary text-primary-foreground font-body font-bold px-8 py-3 rounded-full hover:bg-secondary transition-colors duration-300"
                   >
-                    Réserver mon panier
+                    {p.actionButton.text}
                   </a>
                 )}
               </div>
