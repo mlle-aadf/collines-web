@@ -1,5 +1,14 @@
 import newsletterImg from "@/assets/newsletter-image.jpg";
 
+const newsletterData = {
+  subtitle: "Infolettre",
+  title: "Restez branchés sur la saison!",
+  description: "Inscrivez-vous à l'infolettre de La Ferme des Collines pour recevoir nos actualités, nos calendriers de récoltes et des astuces pour cuisiner vos légumes frais. C'est simple, local et directement dans votre boîte de réception.",
+  buttonText: "Je m'inscris",
+  buttonLink: "https://preview.mailerlite.io/forms/2129271/181208096676250955/share",
+  imageAlt: "S'abonner à notre infolettre"
+};
+
 const NewsletterSection = () => {
   return (
     <section id="infolettre" className="py-20 md:py-32 bg-white border-t border-border">
@@ -8,21 +17,21 @@ const NewsletterSection = () => {
           {/* Content side (Right on desktop) */}
           <div className="w-full md:w-1/2 flex flex-col items-center text-center md:items-start md:text-left">
             <span className="font-body text-secondary font-bold tracking-widest uppercase text-sm mb-3">
-              Infolettre
+              {newsletterData.subtitle}
             </span>
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-6">
-              Restez branchés sur la saison! 
+              {newsletterData.title}
             </h2>
             <p className="font-body text-base md:text-lg text-muted-foreground leading-relaxed mb-8">
-              Inscrivez-vous à l'infolettre de La Ferme des Collines pour recevoir nos actualités, nos calendriers de récoltes et des astuces pour cuisiner vos légumes frais. C'est simple, local et directement dans votre boîte de réception.
+              {newsletterData.description}
             </p>
             <a
-              href="https://preview.mailerlite.io/forms/2129271/181208096676250955/share"
+              href={newsletterData.buttonLink}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-primary text-primary-foreground font-body font-medium text-sm px-8 py-3 rounded-full hover:bg-secondary transition-colors duration-300"
             >
-              Je m'inscris
+              {newsletterData.buttonText}
             </a>
           </div>
 
@@ -33,7 +42,7 @@ const NewsletterSection = () => {
               <div className="rounded-2xl overflow-hidden shadow-xl aspect-[4/3]">
                 <img
                   src={newsletterImg}
-                  alt="S'abonner à notre infolettre"
+                  alt={newsletterData.imageAlt}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   loading="lazy"
                 />

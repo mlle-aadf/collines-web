@@ -2,6 +2,42 @@ import logoFull from "@/assets/logo-full.png";
 import { Mail, MapPin, Phone, Facebook } from "lucide-react";
 import { openPrivacyPolicy } from "./CookieBanner";
 
+const footerData = {
+  title: "Pour nous rejoindre",
+  copyright: `© ${new Date().getFullYear()} LA FERME DES COLLINES. Tous droits réservés.`,
+  policyLinkText: "Politique de confidentialité",
+  contactMethods: [
+    {
+      id: "address",
+      icon: MapPin,
+      label: "Adresse",
+      value: "2485 Rang Gauvin Nord QC, Canada J9X 5L0",
+      href: "https://maps.app.goo.gl/FDmBtcfHhw9VXSdR8",
+    },
+    {
+      id: "email",
+      icon: Mail,
+      label: "Courriel",
+      value: "info@fermesdescollines.ca",
+      href: "mailto:info@fermeslescollines.ca",
+    },
+    {
+      id: "phone",
+      icon: Phone,
+      label: "Téléphone",
+      value: "+1 (819) 277-7446",
+      href: "tel:+18192777446",
+    },
+    {
+      id: "facebook",
+      icon: Facebook,
+      label: "Facebook",
+      value: "Rejoignez la communauté",
+      href: "https://www.facebook.com/people/Ferme-des-collines/100069650700211/?sk=about",
+    },
+  ],
+};
+
 const FooterSection = () => {
   return (
     <footer id="contact" className="bg-muted py-10 md:py-14">
@@ -17,79 +53,46 @@ const FooterSection = () => {
 
           <div className="flex flex-col gap-6">
             <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground text-center md:text-left">
-              Pour nous rejoindre
+              {footerData.title}
             </h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 font-body text-muted-foreground">
-              <a
-                href="https://maps.app.goo.gl/FDmBtcfHhw9VXSdR8"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-start gap-3 p-4 rounded-xl bg-white/60 hover:bg-white shadow-sm border border-border transition-all duration-300 hover:shadow-md group"
-              >
-                <div className="shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <MapPin size={18} className="text-primary" />
-                </div>
-                <div>
-                  <span className="block font-bold text-foreground text-sm uppercase tracking-wider mb-1">Adresse</span>
-                  <span className="text-xs leading-relaxed">2485 Rang Gauvin Nord QC, Canada J9X 5L0</span>
-                </div>
-              </a>
-
-              <a
-                href="mailto:info@fermeslescollines.ca"
-                className="flex items-start gap-3 p-4 rounded-xl bg-white/60 hover:bg-white shadow-sm border border-border transition-all duration-300 hover:shadow-md group"
-              >
-                <div className="shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <Mail size={18} className="text-primary" />
-                </div>
-                <div>
-                  <span className="block font-bold text-foreground text-sm uppercase tracking-wider mb-1">Courriel</span>
-                  <span className="text-xs">info@fermesdescollines.ca</span>
-                </div>
-              </a>
-
-              <a
-                href="tel:+18192777446"
-                className="flex items-start gap-3 p-4 rounded-xl bg-white/60 hover:bg-white shadow-sm border border-border transition-all duration-300 hover:shadow-md group"
-              >
-                <div className="shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <Phone size={18} className="text-primary" />
-                </div>
-                <div>
-                  <span className="block font-bold text-foreground text-sm uppercase tracking-wider mb-1">Téléphone</span>
-                  <span className="text-xs">+1 (819) 277-7446</span>
-                </div>
-              </a>
-
-              <a
-                href="https://www.facebook.com/people/Ferme-des-collines/100069650700211/?sk=about"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-start gap-3 p-4 rounded-xl bg-white/60 hover:bg-white shadow-sm border border-border transition-all duration-300 hover:shadow-md group"
-              >
-                <div className="shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <Facebook size={18} className="text-primary" />
-                </div>
-                <div>
-                  <span className="block font-bold text-foreground text-sm uppercase tracking-wider mb-1">Facebook</span>
-                  <span className="text-xs">Rejoignez la communauté</span>
-                </div>
-              </a>
+              {footerData.contactMethods.map((method) => {
+                const Icon = method.icon;
+                return (
+                  <a
+                    key={method.id}
+                    href={method.href}
+                    target={method.href.startsWith("http") ? "_blank" : undefined}
+                    rel={method.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                    className="flex items-start gap-3 p-4 rounded-xl bg-white/60 hover:bg-white shadow-sm border border-border transition-all duration-300 hover:shadow-md group"
+                  >
+                    <div className="shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <Icon size={18} className="text-primary" />
+                    </div>
+                    <div>
+                      <span className="block font-bold text-foreground text-sm uppercase tracking-wider mb-1">
+                        {method.label}
+                      </span>
+                      <span className="text-xs leading-relaxed">{method.value}</span>
+                    </div>
+                  </a>
+                );
+              })}
             </div>
           </div>
         </div>
 
         <div className="mt-12 pt-6 border-t border-border/60 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="font-body text-[10px] text-center text-muted-foreground/60 tracking-widest uppercase">
-            © {new Date().getFullYear()} LA FERME DES COLLINES. Tous droits réservés.
+            {footerData.copyright}
           </p>
           <div className="flex gap-6">
             <button
               onClick={openPrivacyPolicy}
               className="font-body text-[10px] text-muted-foreground/60 tracking-widest uppercase hover:text-primary transition-colors"
             >
-              Politique de confidentialité
+              {footerData.policyLinkText}
             </button>
           </div>
         </div>

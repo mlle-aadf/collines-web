@@ -3,6 +3,22 @@ import { Menu, X, Facebook } from "lucide-react";
 import logoWhite from "@/assets/logo-white.png";
 import logoColor from "@/assets/logo-color.png";
 
+const navData = {
+  farmName: "LA FERME DES COLLINES",
+  logoAlt: "La Ferme des Collines",
+  links: [
+    { label: "Nos produits", id: "produits" },
+    { label: "Abonnement", id: "abonnement" },
+    { label: "Infolettre", id: "infolettre" },
+    { label: "Nous rejoindre", id: "contact" },
+  ],
+  facebook: {
+    url: "https://www.facebook.com/people/Ferme-des-collines/100069650700211/?sk=about",
+    ariaLabel: "Facebook",
+    mobileLabel: "Suivez-nous sur Facebook"
+  }
+};
+
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
@@ -35,7 +51,7 @@ const Navbar = () => {
           >
             <img
               src={isScrolled ? logoColor : logoWhite}
-              alt="La Ferme des Collines"
+              alt={navData.logoAlt}
               className="h-8 min-[390px]:h-10 md:h-12 w-auto transition-all duration-300"
             />
           </button>
@@ -50,7 +66,7 @@ const Navbar = () => {
               className={`font-heading text-[12px] min-[330px]:text-[13px] min-[400px]:text-sm sm:text-base md:text-xl font-bold tracking-wider sm:tracking-widest whitespace-nowrap transition-colors duration-300 ${isScrolled ? "text-foreground" : "text-primary-foreground"
                 }`}
             >
-              LA FERME DES COLLINES
+              {navData.farmName}
             </span>
           </button>
         </div>
@@ -58,55 +74,31 @@ const Navbar = () => {
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-1 lg:gap-2">
           <div className="flex items-center gap-1 lg:gap-3">
-            <button
-              onClick={() => scrollTo("produits")}
-              className={`font-body text-sm lg:text-base font-semibold px-3 py-2 rounded-full transition-all duration-300 ${isScrolled
-                ? "text-foreground hover:bg-primary/5 hover:text-primary"
-                : "text-primary-foreground hover:bg-white hover:text-primary"
-                }`}
-            >
-              Nos produits
-            </button>
-            <button
-              onClick={() => scrollTo("abonnement")}
-              className={`font-body text-sm lg:text-base font-semibold px-3 py-2 rounded-full transition-all duration-300 ${isScrolled
-                ? "text-foreground hover:bg-primary/5 hover:text-primary"
-                : "text-primary-foreground hover:bg-white hover:text-primary"
-                }`}
-            >
-              Abonnement
-            </button>
-            <button
-              onClick={() => scrollTo("infolettre")}
-              className={`font-body text-sm lg:text-base font-semibold px-3 py-2 rounded-full transition-all duration-300 ${isScrolled
-                ? "text-foreground hover:bg-primary/5 hover:text-primary"
-                : "text-primary-foreground hover:bg-white hover:text-primary"
-                }`}
-            >
-              Infolettre
-            </button>
-            <button
-              onClick={() => scrollTo("contact")}
-              className={`font-body text-sm lg:text-base font-semibold px-3 py-2 rounded-full transition-all duration-300 ${isScrolled
-                ? "text-foreground hover:bg-primary/5 hover:text-primary"
-                : "text-primary-foreground hover:bg-white hover:text-primary"
-                }`}
-            >
-              Nous rejoindre
-            </button>
+            {navData.links.map((link) => (
+              <button
+                key={link.id}
+                onClick={() => scrollTo(link.id)}
+                className={`font-body text-sm lg:text-base font-semibold px-3 py-2 rounded-full transition-all duration-300 ${isScrolled
+                  ? "text-foreground hover:bg-primary/5 hover:text-primary"
+                  : "text-primary-foreground hover:bg-white hover:text-primary"
+                  }`}
+              >
+                {link.label}
+              </button>
+            ))}
           </div>
           
           <div className={`w-px h-5 mx-1 hidden md:block transition-colors duration-300 ${isScrolled ? "bg-border" : "bg-white/20"}`}></div>
           
           <a
-            href="https://www.facebook.com/people/Ferme-des-collines/100069650700211/?sk=about"
+            href={navData.facebook.url}
             target="_blank"
             rel="noopener noreferrer"
             className={`p-2 rounded-full transition-all duration-300 ${isScrolled
               ? "text-foreground hover:bg-primary/5 hover:text-primary"
               : "text-primary-foreground hover:bg-white hover:text-primary"
               }`}
-            aria-label="Facebook"
+            aria-label={navData.facebook.ariaLabel}
           >
             <Facebook size={20} />
           </a>
@@ -129,39 +121,24 @@ const Navbar = () => {
           }`}
       >
         <div className="container flex flex-col gap-4 py-4">
-          <button
-            onClick={() => scrollTo("produits")}
-            className="font-body text-sm font-medium text-foreground text-left hover:text-primary transition-colors"
-          >
-            Nos produits
-          </button>
-          <button
-            onClick={() => scrollTo("abonnement")}
-            className="font-body text-sm font-medium text-foreground text-left hover:text-primary transition-colors"
-          >
-            Abonnement
-          </button>
-          <button
-            onClick={() => scrollTo("infolettre")}
-            className="font-body text-sm font-medium text-foreground text-left hover:text-primary transition-colors"
-          >
-            Infolettre
-          </button>
-          <button
-            onClick={() => scrollTo("contact")}
-            className="font-body text-sm font-medium text-foreground text-left hover:text-primary transition-colors"
-          >
-            Nous rejoindre
-          </button>
+          {navData.links.map((link) => (
+            <button
+              key={link.id}
+              onClick={() => scrollTo(link.id)}
+              className="font-body text-sm font-medium text-foreground text-left hover:text-primary transition-colors"
+            >
+              {link.label}
+            </button>
+          ))}
           <div className="h-px bg-border/60 w-full my-2"></div>
           <a
-            href="#"
+            href={navData.facebook.url}
             target="_blank"
             rel="noopener noreferrer"
             className="font-body text-sm font-medium text-primary text-left flex items-center gap-2 hover:text-secondary transition-colors pb-2"
           >
             <Facebook size={18} />
-            Suivez-nous sur Facebook
+            {navData.facebook.mobileLabel}
           </a>
         </div>
       </div>
