@@ -38,11 +38,6 @@ export const hero = {
 export const about = {
   title: "Bienvenue à La Ferme des Collines",
   description: "Située au sud de Rouyn-Noranda, la Ferme des Collines est une entreprise familiale née d’un désir simple : cultiver des légumes savoureux pour faciliter la vie des familles d'ici. \n\nCultivés avec respect pour la terre et pour votre santé, nos légumes sont simples, sains et frais. Nous proposons des produits faciles à cuisiner, qui ramènent l'essentiel dans l'assiette.",
-  // features: [
-  //   { name: "Sains :", desc: "Cultivés avec respect pour la terre et pour votre santé." },
-  //   { name: "Frais :", desc: "Récoltés à maturité pour que vous profitiez du vrai goût des aliments." },
-  //   { name: "Simples :", desc: "Des produits authentiques, faciles à cuisiner, qui ramènent l'essentiel dans l'assiette." }
-  // ],
   imageAlt: "Récolte de légumes frais de la ferme",
   image: farmImage
 };
@@ -55,14 +50,14 @@ export const products = {
     subtitle: "Abonnement saisonnier",
     text: `Bénéficiez d'un accès privilégié à nos produits toute la saison et profitez d'un rabais de 5 à 10 % (payable d'avance à l'inscription).
 
-Abonnements disponibles :
-- Le mini: 23$/semaine (Total: 345$)
-- Le régulier: 35$/semaine (Total: 525$)
-- Le grand: 45$/semaine (Total: 675$)`,
+  Abonnements disponibles\u202F:
+  - Le mini: 23$/semaine (Total: 345$)
+  - Le régulier: 35$/semaine (Total: 525$)
+  - Le grand: 45$/semaine (Total: 675$)`,
     features: [
-      { name: "Quand :", desc: "15 semaines (29 juin au 5 octobre 2026)" },
-      { name: "Récupération :", desc: "Les lundis entre 15h30 et 18h" },
-      { name: "Lieu :", desc: "Sous le chapiteau du marché public (222 Av. Dallaire)" }
+      { name: "Quand\u202F:", desc: "15 semaines (29 juin au 5 octobre 2026)" },
+      { name: "Récupération\u202F:", desc: "Les lundis entre 15h30 et 18h" },
+      { name: "Lieu\u202F:", desc: "Sous le chapiteau du marché public (222 Av. Dallaire)" }
     ],
     actionButton: {
       text: "Réserver mon panier",
@@ -74,26 +69,26 @@ Abonnements disponibles :
     title: "Marché public",
     subtitle: "Directement du producteur",
     marketInfo: {
-      prefix: "Rendez-vous hebdomadaire : ",
+      prefix: "Rendez-vous hebdomadaire\u202F: ",
       linkText: "Le Marché public de Rouyn-Noranda",
       href: "https://www.facebook.com/MPRouynNoranda/?locale=fr_CA"
     },
     text: `Retrouvez toute la saveur de nos champs au cœur de la ville ! Tous les mercredis de la saison estivale, nous vous accueillons avec nos plus belles récoltes.`,
     features: [
-      { name: "Découvrez :", desc: "Nos nouveautés et variétés de saison." },
-      { name: "Échangez :", desc: "Posez vos questions sur notre agriculture durable." },
-      { name: "Liberté :", desc: "Choisissez exactement ce dont vous avez besoin." },
-      { name: "Paiements faciles :", desc: "Argent comptant, cartes de débit et de crédit acceptées." }
+      { name: "Découvrez", desc: "nos nouveautés et légumes de saison." },
+      { name: "Posez", desc: "vos questions sur notre agriculture durable." },
+      { name: "Choisissez", desc: "exactement ce dont vous avez besoin." },
+      { name: "", desc: "Argent comptant, cartes de débit et de crédit acceptées." }
     ],
     image: marcheImg,
   },
   {
     title: "Kiosque à la ferme",
     subtitle: "Libre-service 7/7",
-    text: `Le Marché de la Ferme : Fraîcheur en toute liberté
-Dès le 1er juillet, nous vous ouvrons les portes de notre kiosque libre-service, situé directement dans notre bâtiment principal. Pensé pour s'adapter à votre horaire, il est ouvert tous les jours de 9h à 18h.
+    text: `Le Marché de la Ferme\u202F: Fraîcheur en toute liberté
+  Dès le 1er juillet, nous vous ouvrons les portes de notre kiosque libre-service, situé directement dans notre bâtiment principal. Pensé pour s'adapter à votre horaire, il est ouvert tous les jours de 9h à 18h.
 
-Vous y découvrirez chaque jour une sélection de nos plus belles récoltes. Notre concept repose sur une valeur qui nous tient à cœur : la confiance. Vous choisissez vos légumes et déposez votre paiement en toute simplicité (comptant uniquement). C'est le raccourci idéal entre nos champs et votre cuisine !`,
+  Vous y découvrirez chaque jour une sélection de nos plus belles récoltes. Notre concept repose sur une valeur qui nous tient à cœur\u202F: la confiance. Vous choisissez vos légumes et déposez votre paiement en toute simplicité (comptant uniquement). C'est le raccourci idéal entre nos champs et votre cuisine!`,
     image: kiosqueImg,
   },
   {
@@ -101,13 +96,13 @@ Vous y découvrirez chaque jour une sélection de nos plus belles récoltes. Not
     subtitle: "Partenaires locaux",
     text: `Retrouvez La Ferme des Collines chez nos partenaires de confiance
 
-Parce que nous croyons à la force de notre communauté, nos récoltes voyagent aussi jusqu'à vos adresses préférées de Rouyn-Noranda. Vous pouvez savourer la fraîcheur de nos légumes de saison aux points de vente suivants :`,
+Parce que nous croyons à la force de notre communauté, nos récoltes voyagent aussi jusqu'à vos adresses préférées de Rouyn-Noranda. Vous pouvez savourer la fraîcheur de nos légumes de saison aux points de vente suivants\u202F:`,
     partners: [
       { name: "IGA Extra Marché Éric Lambert", address: "105, chemin Sénateur" },
       { name: "Le Cellier (Resto/Bar à vin)", address: "126, avenue Murdoch", href: "https://lenoranda.com/restaurant/" },
       { name: "Marché du Fermier", address: "167, rue Gamble", href: "https://marche-du-fermier.myshopify.com/" },
     ],
-    conclusion: `Un gage de qualité : Repérez notre logo ! C’est votre garantie d’un produit local, cueilli avec soin et livré avec toute sa vitalité.`,
+    conclusion: `Un gage de qualité\u202F: Repérez notre logo! C’est votre garantie d’un produit local, cueilli avec soin et livré avec toute sa vitalité.`,
     image: detaillantImg,
   },
   ]
@@ -170,7 +165,7 @@ export const cookieBanner = {
 export const policy = {
   title: "Politique de confidentialité",
   closeAriaLabel: "Fermer",
-  lastUpdated: "Dernière mise à jour : 2026-03-11",
+  lastUpdated: "Dernière mise à jour\u202F: 2026-03-11",
   sections: [
     {
       title: "Engagement Loi 25",
@@ -187,10 +182,10 @@ export const policy = {
   ],
   technicalNote: {
     title: "Note technique",
-    content: "Votre choix est conservé en session (supprimé à la fermeture de l'onglet)."
+    content: "L'état de cette bannière est conservé 6 mois via un témoin essentiel."
   },
   contact: {
-    label: "Contact :",
+    label: "Contact\u202F:",
     email: "info@fermedescollines.ca"
   },
   buttonText: "J'ai compris"

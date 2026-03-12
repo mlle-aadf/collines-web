@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
-import { Cookie } from "lucide-react";
-import PolicyModal from "./PolicyModal";
 import { cookieBanner } from "@/assets/data";
+import { Cookie } from "lucide-react";
+import { useEffect, useState } from "react";
+import PolicyModal from "./PolicyModal";
 
 export const openPrivacyPolicy = () => {
   window.dispatchEvent(new CustomEvent("open-privacy-policy"));
@@ -12,13 +12,17 @@ const CookieBanner = () => {
   const [isPolicyOpen, setIsPolicyOpen] = useState(false);
 
   useEffect(() => {
-    const stored = sessionStorage.getItem("cookie-prefs");
+    const stored = localStorage.getItem("cookie-prefs") || sessionStorage.getItem("cookie-prefs");
     const prefs = stored ? JSON.parse(stored) : null;
+    const now = new Date();
 
-    if (!prefs) {
-      const timer = setTimeout(() => setIsVisible(true), 1500);
-      return () => clearTimeout(timer);
+    if (prefs && prefs.expires && new Date(prefs.expires) > now) {
+      // consent still valid; keep banner hidden
+      return;
     }
+
+    const timer = setTimeout(() => setIsVisible(true), 1500);
+    return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
@@ -31,11 +35,16 @@ const CookieBanner = () => {
   }, []);
 
   const handleAccept = () => {
+    const expires = new Date();
+    expires.setMonth(expires.getMonth() + 6); // 6 months from now
+
     const prefs = {
       essential: true,
       timestamp: new Date().toISOString(),
+      expires: expires.toISOString(),
     };
-    sessionStorage.setItem("cookie-prefs", JSON.stringify(prefs));
+
+    localStorage.setItem("cookie-prefs", JSON.stringify(prefs));
     setIsVisible(false);
   };
 

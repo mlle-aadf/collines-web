@@ -12,14 +12,6 @@ const AboutSection = () => {
             <p className="font-body text-base md:text-lg text-muted-foreground leading-relaxed md:leading-loose md:max-w-xl whitespace-pre-line">
               {about.description}
             </p>
-
-            {/* <ul className="list-none pl-0 space-y-3 mt-6 text-muted-foreground md:max-w-xl">
-              {about.features.map((feature, index) => (
-                <li key={index}>
-                  <strong>{feature.name}</strong> {feature.desc}
-                </li>
-              ))}
-            </ul> */}
           </div>
           <div className="rounded-lg overflow-hidden md:order-2 shadow-lg">
             <img
