@@ -13,13 +13,13 @@ const AboutSection = () => {
               {about.description}
             </p>
 
-            <ul className="list-none pl-0 space-y-3 mt-6 text-muted-foreground md:max-w-xl">
+            {/* <ul className="list-none pl-0 space-y-3 mt-6 text-muted-foreground md:max-w-xl">
               {about.features.map((feature, index) => (
                 <li key={index}>
                   <strong>{feature.name}</strong> {feature.desc}
                 </li>
               ))}
-            </ul>
+            </ul> */}
           </div>
           <div className="rounded-lg overflow-hidden md:order-2 shadow-lg">
             <img

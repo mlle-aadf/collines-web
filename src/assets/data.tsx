@@ -1,14 +1,14 @@
-import heroImage from "@/assets/hero-farm.jpg";
 import farmImage from "@/assets/farm-about.jpg";
+import heroImage from "@/assets/hero-farm.jpg";
+import logoColor from "@/assets/logo-color.png";
+import logoFull from "@/assets/logo-full.png";
+import logoWhite from "@/assets/logo-white.png";
+import newsletterImg from "@/assets/newsletter-image.jpg";
 import detaillantImg from "@/assets/product-detaillant.jpg";
 import kiosqueImg from "@/assets/product-kiosque.jpg";
 import marcheImg from "@/assets/product-marche.jpg";
 import paniersImg from "@/assets/product-paniers.jpg";
-import newsletterImg from "@/assets/newsletter-image.jpg";
-import logoFull from "@/assets/logo-full.png";
-import logoWhite from "@/assets/logo-white.png";
-import logoColor from "@/assets/logo-color.png";
-import { Mail, MapPin, Phone, Facebook } from "lucide-react";
+import { Facebook, Mail, MapPin, Phone } from "lucide-react";
 
 export const nav = {
   farmName: "LA FERME DES COLLINES",
@@ -36,13 +36,13 @@ export const hero = {
 };
 
 export const about = {
-  title: "Bienvenue à La Ferme des Collines 🌿",
-  description: "Située au sud de Rouyn-Noranda, la Ferme des Collines est une entreprise familiale née d’un désir tout simple :\ncultiver des légumes savoureux pour faciliter la vie des familles d'ici.",
-  features: [
-    { name: "Sains :", desc: "Cultivés avec respect pour la terre et pour votre santé." },
-    { name: "Frais :", desc: "Récoltés à maturité pour que vous profitiez du vrai goût des aliments." },
-    { name: "Simples :", desc: "Des produits authentiques, faciles à cuisiner, qui ramènent l'essentiel dans l'assiette." }
-  ],
+  title: "Bienvenue à La Ferme des Collines",
+  description: "Située au sud de Rouyn-Noranda, la Ferme des Collines est une entreprise familiale née d’un désir simple : cultiver des légumes savoureux pour faciliter la vie des familles d'ici. \n\nCultivés avec respect pour la terre et pour votre santé, nos légumes sont simples, sains et frais. Nous proposons des produits faciles à cuisiner, qui ramènent l'essentiel dans l'assiette.",
+  // features: [
+  //   { name: "Sains :", desc: "Cultivés avec respect pour la terre et pour votre santé." },
+  //   { name: "Frais :", desc: "Récoltés à maturité pour que vous profitiez du vrai goût des aliments." },
+  //   { name: "Simples :", desc: "Des produits authentiques, faciles à cuisiner, qui ramènent l'essentiel dans l'assiette." }
+  // ],
   imageAlt: "Récolte de légumes frais de la ferme",
   image: farmImage
 };
