@@ -27,7 +27,7 @@ Site vitrine développé pour **La Ferme des Collines** : présentation de la fe
 
 ## ✏️ Modifier le contenu du site
 
-> **Un seul fichier à ouvrir : `src/assets/data.tsx`**
+> **Un seul fichier à ouvrir : [`src/assets/data.tsx`](https://github.com/mlle-aadf/collines-web/blob/main/src/assets/data.tsx)**
 > Tous les textes, liens et images du site s'y trouvent — aucun autre fichier à toucher.
 
 ### 🔤 Règle générale
