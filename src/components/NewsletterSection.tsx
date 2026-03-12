@@ -1,13 +1,4 @@
-import newsletterImg from "@/assets/newsletter-image.jpg";
-
-const newsletter = {
-  subtitle: "Infolettre",
-  title: "Restez branchés sur la saison!",
-  description: "Inscrivez-vous à l'infolettre de La Ferme des Collines pour recevoir nos actualités, nos calendriers de récoltes et des astuces pour cuisiner vos légumes frais. C'est simple, local et directement dans votre boîte de réception.",
-  buttonText: "Je m'inscris",
-  buttonLink: "https://preview.mailerlite.io/forms/2129271/181208096676250955/share",
-  imageAlt: "S'abonner à notre infolettre"
-};
+import { newsletter } from "@/assets/data";
 
 const NewsletterSection = () => {
   return (
@@ -41,7 +32,7 @@ const NewsletterSection = () => {
               <div className="absolute -inset-4 bg-muted rounded-2xl -z-10 transition-transform group-hover:scale-105 duration-500" />
               <div className="rounded-2xl overflow-hidden shadow-xl aspect-[4/3]">
                 <img
-                  src={newsletterImg}
+                  src={newsletter.image}
                   alt={newsletter.imageAlt}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   loading="lazy"

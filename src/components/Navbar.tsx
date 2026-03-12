@@ -1,23 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Facebook } from "lucide-react";
-import logoWhite from "@/assets/logo-white.png";
-import logoColor from "@/assets/logo-color.png";
-
-const nav = {
-  farmName: "LA FERME DES COLLINES",
-  logoAlt: "La Ferme des Collines",
-  links: [
-    { label: "Nos produits", id: "produits" },
-    { label: "Abonnement", id: "abonnement" },
-    { label: "Infolettre", id: "infolettre" },
-    { label: "Nous rejoindre", id: "contact" },
-  ],
-  facebook: {
-    url: "https://www.facebook.com/people/Ferme-des-collines/100069650700211/?sk=about",
-    ariaLabel: "Facebook",
-    mobileLabel: "Suivez-nous sur Facebook"
-  }
-};
+import { nav } from "@/assets/data";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -50,7 +33,7 @@ const Navbar = () => {
             className="z-20 p-1"
           >
             <img
-              src={isScrolled ? logoColor : logoWhite}
+              src={isScrolled ? nav.logoColor : nav.logoWhite}
               alt={nav.logoAlt}
               className="h-8 min-[390px]:h-10 md:h-12 w-auto transition-all duration-300"
             />

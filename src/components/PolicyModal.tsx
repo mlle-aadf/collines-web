@@ -1,34 +1,6 @@
 import { ShieldCheck, X } from "lucide-react";
 import { useEffect, useRef } from "react";
-
-const policy = {
-  title: "Politique de confidentialité",
-  closeAriaLabel: "Fermer",
-  lastUpdated: "Dernière mise à jour : 2026-03-11",
-  sections: [
-    {
-      title: "Engagement Loi 25",
-      content: "Conformément à la Loi 25 du Québec, nous protégeons vos données personnelles."
-    },
-    {
-      title: "Témoins essentiels uniquement",
-      list: [
-        "Fonctionnement technique du site",
-        "Sécurité des sessions"
-      ],
-      footer: "Aucun suivi, analyse ou marketing."
-    }
-  ],
-  technicalNote: {
-    title: "Note technique",
-    content: "Votre choix est conservé en session (supprimé à la fermeture de l'onglet)."
-  },
-  contact: {
-    label: "Contact :",
-    email: "info@fermedescollines.ca"
-  },
-  buttonText: "J'ai compris"
-};
+import { policy } from "@/assets/data";
 
 interface PolicyModalProps {
   isOpen: boolean;

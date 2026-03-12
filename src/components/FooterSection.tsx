@@ -1,42 +1,5 @@
-import logoFull from "@/assets/logo-full.png";
-import { Mail, MapPin, Phone, Facebook } from "lucide-react";
 import { openPrivacyPolicy } from "./CookieBanner";
-
-const footer = {
-  title: "Pour nous rejoindre",
-  copyright: `© ${new Date().getFullYear()} LA FERME DES COLLINES. Tous droits réservés.`,
-  policyLinkText: "Politique de confidentialité",
-  contactMethods: [
-    {
-      id: "address",
-      icon: MapPin,
-      label: "Adresse",
-      value: "2485 Rang Gauvin Nord QC, Canada J9X 5L0",
-      href: "https://maps.app.goo.gl/FDmBtcfHhw9VXSdR8",
-    },
-    {
-      id: "email",
-      icon: Mail,
-      label: "Courriel",
-      value: "info@fermesdescollines.ca",
-      href: "mailto:info@fermeslescollines.ca",
-    },
-    {
-      id: "phone",
-      icon: Phone,
-      label: "Téléphone",
-      value: "+1 (819) 277-7446",
-      href: "tel:+18192777446",
-    },
-    {
-      id: "facebook",
-      icon: Facebook,
-      label: "Facebook",
-      value: "Rejoignez la communauté",
-      href: "https://www.facebook.com/people/Ferme-des-collines/100069650700211/?sk=about",
-    },
-  ],
-};
+import { footer } from "@/assets/data";
 
 const FooterSection = () => {
   return (
@@ -45,7 +8,7 @@ const FooterSection = () => {
         <div className="grid md:grid-cols-[1fr_2fr] gap-8 md:gap-16 items-center">
           <div className="flex justify-center md:justify-end">
             <img
-              src={logoFull}
+              src={footer.logo}
               alt="La Ferme des Collines"
               className="h-32 md:h-44 w-auto animate-fade-in"
             />

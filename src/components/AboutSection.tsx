@@ -1,15 +1,4 @@
-import farmImage from "@/assets/farm-about.jpg";
-
-const about = {
-  title: "Bienvenue à La Ferme des Collines 🌿",
-  description: "Située au sud de Rouyn-Noranda, la Ferme des Collines est une entreprise familiale née d’un désir tout simple :\ncultiver des légumes savoureux pour faciliter la vie des familles d'ici.",
-  features: [
-    { name: "Sains :", desc: "Cultivés avec respect pour la terre et pour votre santé." },
-    { name: "Frais :", desc: "Récoltés à maturité pour que vous profitiez du vrai goût des aliments." },
-    { name: "Simples :", desc: "Des produits authentiques, faciles à cuisiner, qui ramènent l'essentiel dans l'assiette." }
-  ],
-  imageAlt: "Récolte de légumes frais de la ferme"
-};
+import { about } from "@/assets/data";
 
 const AboutSection = () => {
   return (
@@ -34,7 +23,7 @@ const AboutSection = () => {
           </div>
           <div className="rounded-lg overflow-hidden md:order-2 shadow-lg">
             <img
-              src={farmImage}
+              src={about.image}
               alt={about.imageAlt}
               className="w-full h-80 md:h-[420px] object-cover"
               loading="lazy"

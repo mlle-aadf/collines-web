@@ -1,16 +1,10 @@
-import heroImage from "@/assets/hero-farm.jpg";
-
-const hero = {
-  title: "Bienvenue à La Ferme des Collines 🌿", // Actually the H1 text is "Bien manger, tout simplement!" - fixing below. I should check exactly what the text was.
-  headline: "Bien manger, tout simplement!",
-  imageAlt: "Vue aérienne de la ferme maraîchère"
-};
+import { hero } from "@/assets/data";
 
 const HeroSection = () => {
   return (
     <section className="relative h-[80vh] min-h-[500px] flex items-center">
       <img
-        src={heroImage}
+        src={hero.image}
         alt={hero.imageAlt}
         className="absolute inset-0 w-full h-full object-cover"
         loading="eager"

@@ -1,13 +1,7 @@
 import { useState, useEffect } from "react";
 import { Cookie } from "lucide-react";
 import PolicyModal from "./PolicyModal";
-
-const cookieBanner = {
-  title: "Témoins et confidentialité",
-  description: "Ce site utilise des témoins essentiels uniquement pour assurer son bon fonctionnement.",
-  policyLinkText: "Politique de confidentialité",
-  acceptButtonText: "Accepter",
-};
+import { cookieBanner } from "@/assets/data";
 
 export const openPrivacyPolicy = () => {
   window.dispatchEvent(new CustomEvent("open-privacy-policy"));
