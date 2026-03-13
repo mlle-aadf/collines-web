@@ -1,10 +1,51 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Facebook } from "lucide-react";
-import { nav } from "@/assets/data";
+import { useProcessedLandingPageData } from "@/hooks/useLandingPageData";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const { data: landingPageData, isLoading, error } = useProcessedLandingPageData();
+
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollTo = (id: string) => {
+    setIsMobileOpen(false);
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  // Show loading state or fallback
+  if (isLoading || !landingPageData) {
+    return (
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md shadow-card">
+        <div className="container relative flex items-center justify-between h-16 md:h-20">
+          <div className="flex items-center">
+            <div className="h-8 w-32 bg-gray-200 animate-pulse rounded"></div>
+          </div>
+        </div>
+      </nav>
+    );
+  }
+
+  if (error) {
+    console.error('Error loading navbar data:', error);
+    // Fallback to basic navigation
+    return (
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md shadow-card">
+        <div className="container relative flex items-center justify-between h-16 md:h-20">
+          <div className="flex items-center">
+            <span className="font-heading text-xl font-bold">FERME DES COLLINES</span>
+          </div>
+        </div>
+      </nav>
+    );
+  }
+
+  const nav = landingPageData.nav;
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);

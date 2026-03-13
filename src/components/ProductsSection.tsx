@@ -1,6 +1,56 @@
-import { products } from "@/assets/data";
+import { useProcessedLandingPageData } from "@/hooks/useLandingPageData";
 
 const ProductsSection = () => {
+  const { data: landingPageData, isLoading, error } = useProcessedLandingPageData();
+
+  if (isLoading || !landingPageData) {
+    return (
+      <section id="produits" className="py-20 md:py-32 bg-white">
+        <div className="container">
+          <header className="max-w-3xl mx-auto text-center mb-20 md:mb-28">
+            <div className="h-12 bg-gray-300 animate-pulse rounded mb-6"></div>
+            <div className="w-20 h-1.5 bg-gray-200 mx-auto rounded-full"></div>
+          </header>
+          <div className="flex flex-col gap-24 md:gap-40">
+            {[1, 2, 3, 4].map((i) => (
+              <div key={i} className="flex flex-col gap-10 md:gap-16 items-center">
+                <div className="w-full md:w-1/2">
+                  <div className="rounded-2xl bg-gray-200 aspect-[4/3] animate-pulse"></div>
+                </div>
+                <div className="w-full md:w-1/2">
+                  <div className="h-4 bg-gray-300 animate-pulse rounded mb-3 w-32"></div>
+                  <div className="h-10 bg-gray-300 animate-pulse rounded mb-6"></div>
+                  <div className="h-32 bg-gray-300 animate-pulse rounded"></div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (error) {
+    console.error('Error loading products data:', error);
+    return (
+      <section id="produits" className="py-20 md:py-32 bg-white">
+        <div className="container">
+          <header className="max-w-3xl mx-auto text-center mb-20 md:mb-28">
+            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+              Où trouver nos produits
+            </h2>
+            <div className="w-20 h-1.5 bg-secondary mx-auto rounded-full" />
+          </header>
+          <div className="text-center text-muted-foreground">
+            Error loading products content.
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  const products = landingPageData.products;
+
   return (
     <section id="produits" className="py-20 md:py-32 bg-white">
       <div className="container">
@@ -14,7 +64,7 @@ const ProductsSection = () => {
         <div className="flex flex-col gap-24 md:gap-40">
           {products.items.map((p, index) => (
             <div
-              key={p.title}
+              key={p._key || p.title}
               id={p.title === "Paniers" ? "abonnement" : undefined}
               className={`flex flex-col gap-10 md:gap-16 items-center ${index % 2 === 1 ? "md:flex-row-reverse" : "md:flex-row"
                 }`}
@@ -24,12 +74,14 @@ const ProductsSection = () => {
                 <div className="relative group">
                   <div className="absolute -inset-4 bg-muted rounded-2xl -z-10 transition-transform group-hover:scale-105 duration-500" />
                   <div className="rounded-2xl overflow-hidden shadow-xl aspect-[4/3]">
-                    <img
-                      src={p.image}
-                      alt={p.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      loading="lazy"
-                    />
+                    {p.image && (
+                      <img
+                        src={p.image}
+                        alt={p.title}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        loading="lazy"
+                      />
+                    )}
                   </div>
                 </div>
               </div>
@@ -68,8 +120,8 @@ const ProductsSection = () => {
 
                 {p.features && (
                   <ul className="mt-4 list-none pl-0 space-y-3 font-body text-base md:text-lg text-muted-foreground md:max-w-xl">
-                    {p.features.map((feature, i) => (
-                      <li key={i}>
+                    {p.features.map((feature) => (
+                      <li key={feature._key || feature.name}>
                         <strong>{feature.name}</strong> {feature.desc}
                       </li>
                     ))}
@@ -79,7 +131,7 @@ const ProductsSection = () => {
                 {p.partners && (
                   <div className="mt-6 md:max-w-xl text-muted-foreground space-y-3 text-base md:text-lg">
                     {p.partners.map((partner) => (
-                      <div key={partner.name} className="text-left">
+                      <div key={partner._key || partner.name} className="text-left">
                         {partner.href ? (
                           <a href={partner.href} target="_blank" rel="noopener noreferrer" className="text-primary underline">
                             {partner.name}
@@ -115,5 +167,7 @@ const ProductsSection = () => {
     </section>
   );
 };
+
+export default ProductsSection;
 
 export default ProductsSection;

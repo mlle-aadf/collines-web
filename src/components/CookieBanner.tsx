@@ -1,4 +1,4 @@
-import { cookieBanner } from "@/assets/data";
+import { useProcessedLandingPageData } from "@/hooks/useLandingPageData";
 import { Cookie } from "lucide-react";
 import { useEffect, useState } from "react";
 import PolicyModal from "./PolicyModal";
@@ -8,6 +8,7 @@ export const openPrivacyPolicy = () => {
 };
 
 const CookieBanner = () => {
+  const { data: landingPageData, isLoading, error } = useProcessedLandingPageData();
   const [isVisible, setIsVisible] = useState(false);
   const [isPolicyOpen, setIsPolicyOpen] = useState(false);
 
@@ -28,7 +29,7 @@ const CookieBanner = () => {
   useEffect(() => {
     const handleOpenPolicy = () => setIsPolicyOpen(true);
     window.addEventListener("open-privacy-policy", handleOpenPolicy);
-    
+
     return () => {
       window.removeEventListener("open-privacy-policy", handleOpenPolicy);
     };
@@ -50,10 +51,18 @@ const CookieBanner = () => {
 
   if (!isVisible && !isPolicyOpen) return null;
 
+  // Use default values if data is loading or there's an error
+  const cookieBanner = landingPageData?.cookieBanner || {
+    title: "Témoins et confidentialité",
+    description: "Ce site utilise des témoins essentiels uniquement pour assurer son bon fonctionnement.",
+    policyLinkText: "Politique de confidentialité",
+    acceptButtonText: "Accepter"
+  };
+
   return (
     <>
       {isVisible && (
-        <div 
+        <div
           className="fixed bottom-4 right-4 z-[100] animate-fade-in-up w-full max-w-[380px] px-4 md:px-0"
           role="dialog"
           aria-labelledby="cookie-title"
@@ -69,10 +78,10 @@ const CookieBanner = () => {
                   {cookieBanner.title}
                 </h3>
               </div>
-              
+
               <p id="cookie-desc" className="font-body text-sm text-[#4A4A4A] leading-relaxed">
                 {cookieBanner.description}{" "}
-                <button 
+                <button
                   onClick={() => setIsPolicyOpen(true)}
                   className="text-[#23622F] font-bold underline hover:text-[#184521] transition-colors"
                 >
@@ -93,12 +102,14 @@ const CookieBanner = () => {
         </div>
       )}
 
-      <PolicyModal 
-        isOpen={isPolicyOpen} 
-        onClose={() => setIsPolicyOpen(false)} 
+      <PolicyModal
+        isOpen={isPolicyOpen}
+        onClose={() => setIsPolicyOpen(false)}
       />
     </>
   );
 };
+
+export default CookieBanner;
 
 export default CookieBanner;
