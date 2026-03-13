@@ -29,7 +29,6 @@ export const nav = {
 };
 
 export const hero = {
-  title: "Bienvenue à La Ferme des Collines 🌿",
   headline: "Bien manger, tout simplement!",
   imageAlt: "Vue aérienne de la ferme maraîchère",
   image: heroImage

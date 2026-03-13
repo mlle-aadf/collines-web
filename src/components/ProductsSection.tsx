@@ -54,7 +54,6 @@ const ProductsSection = () => {
                       >
                         {p.marketInfo.linkText}
                       </a>{' '}
-                      🧺
                     </p>
 
                     <p className="font-body text-base md:text-lg text-muted-foreground whitespace-pre-line leading-relaxed">

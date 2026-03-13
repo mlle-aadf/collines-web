@@ -58,7 +58,6 @@ Modifiez uniquement le texte **entre guillemets** `" "`. Ne supprimez pas les gu
 |---|---|
 | Titre | `title` |
 | Texte de présentation | `description` |
-| Points forts (Sains / Frais / Simples) | `name` et `desc` dans `features` |
 | Image | voir **Changer une image** ↓ |
 
 ---
