@@ -11,8 +11,8 @@ import paniersImg from "@/assets/product-paniers.jpg";
 import { Facebook, Mail, MapPin, Phone } from "lucide-react";
 
 export const nav = {
-  farmName: "LA FERME DES COLLINES",
-  logoAlt: "La Ferme des Collines",
+  farmName: "FERME DES COLLINES",
+  logoAlt: "Ferme des Collines",
   logoWhite,
   logoColor,
   links: [
@@ -35,7 +35,7 @@ export const hero = {
 };
 
 export const about = {
-  title: "Bienvenue à La Ferme des Collines",
+  title: "Bienvenue à la Ferme des Collines",
   description: "Située au sud de Rouyn-Noranda, la Ferme des Collines est une entreprise familiale née d’un désir simple : cultiver des légumes savoureux pour faciliter la vie des familles d'ici. \n\nCultivés avec respect pour la terre et pour votre santé, nos légumes sont simples, sains et frais. Nous proposons des produits faciles à cuisiner, qui ramènent l'essentiel dans l'assiette.",
   imageAlt: "Récolte de légumes frais de la ferme",
   image: farmImage
@@ -123,7 +123,7 @@ export const newsletter = {
 
 export const footer = {
   title: "Pour nous rejoindre",
-  copyright: `© ${new Date().getFullYear()} LA FERME DES COLLINES. Tous droits réservés.`,
+  copyright: `© ${new Date().getFullYear()} FERME DES COLLINES. Tous droits réservés.`,
   policyLinkText: "Politique de confidentialité",
   logo: logoFull,
   contactMethods: [
@@ -138,8 +138,8 @@ export const footer = {
       id: "email",
       icon: Mail,
       label: "Courriel",
-      value: "info@fermesdescollines.ca",
-      href: "mailto:info@fermeslescollines.ca",
+      value: "info@fermedescollines.ca",
+      href: "mailto:info@fermedescollines.ca",
     },
     {
       id: "phone",
