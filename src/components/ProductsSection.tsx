@@ -53,7 +53,7 @@ const ProductsSection = () => {
                         className="text-primary underline"
                       >
                         {p.marketInfo.linkText}
-                      </a>{' '}
+                      </a>{p.marketInfo.suffix}
                     </p>
 
                     <p className="font-body text-base md:text-lg text-muted-foreground whitespace-pre-line leading-relaxed">
