@@ -1,6 +1,6 @@
+import { useProcessedLandingPageData } from "@/hooks/useLandingPageData";
 import { ShieldCheck, X } from "lucide-react";
 import { useEffect, useRef } from "react";
-import { useProcessedLandingPageData } from "@/hooks/useLandingPageData";
 
 interface PolicyModalProps {
   isOpen: boolean;
@@ -131,7 +131,5 @@ const PolicyModal = ({ isOpen, onClose }: PolicyModalProps) => {
     </div>
   );
 };
-
-export default PolicyModal;
 
 export default PolicyModal;

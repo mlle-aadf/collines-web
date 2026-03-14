@@ -1,4 +1,5 @@
 import { useProcessedLandingPageData } from "@/hooks/useLandingPageData";
+import { RichText, RichTextList } from "./RichText";
 
 const ProductsSection = () => {
   const { data: landingPageData, isLoading, error } = useProcessedLandingPageData();
@@ -94,59 +95,47 @@ const ProductsSection = () => {
                 <h3 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-6">
                   {p.title}
                 </h3>
-                {p.marketInfo ? (
-                  <>
-                    <p className="font-body text-base md:text-lg text-muted-foreground leading-relaxed md:leading-loose md:max-w-xl">
-                      {p.marketInfo.prefix}
-                      <a
-                        href={p.marketInfo.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-primary underline"
-                      >
-                        {p.marketInfo.linkText}
-                      </a>{p.marketInfo.suffix}
-                    </p>
+                
+                {/* Main description - supports markdown-style formatting */}
+                <RichText 
+                  content={p.description}
+                  className="font-body text-base md:text-lg text-muted-foreground whitespace-pre-line leading-relaxed md:max-w-xl"
+                />
 
-                    <p className="font-body text-base md:text-lg text-muted-foreground whitespace-pre-line leading-relaxed">
-                      {p.text}
-                    </p>
-                  </>
-                ) : (
-                  <p className="font-body text-base md:text-lg text-muted-foreground whitespace-pre-line leading-relaxed">
-                    {p.text}
-                  </p>
+                {/* Features list */}
+                {p.features && p.features.length > 0 && (
+                  <RichTextList 
+                    items={p.features}
+                    className="mt-4 font-body text-base md:text-lg text-muted-foreground md:max-w-xl"
+                  />
                 )}
 
-                {p.features && (
-                  <ul className="mt-4 list-none pl-0 space-y-3 font-body text-base md:text-lg text-muted-foreground md:max-w-xl">
-                    {p.features.map((feature) => (
-                      <li key={feature._key || feature.name}>
-                        <strong>{feature.name}</strong> {feature.desc}
-                      </li>
-                    ))}
-                  </ul>
+                {/* Conclusion */}
+                {p.conclusion && (
+                  <RichText 
+                    content={p.conclusion}
+                    className="mt-6 font-body text-base md:text-lg text-muted-foreground leading-relaxed md:max-w-xl"
+                  />
                 )}
 
-                {p.partners && (
+                {/* Partners list */}
+                {p.partners && p.partners.length > 0 && (
                   <div className="mt-6 md:max-w-xl text-muted-foreground space-y-3 text-base md:text-lg">
-                    {p.partners.map((partner) => (
-                      <div key={partner._key || partner.name} className="text-left">
+                    {p.partners.map((partner, idx) => (
+                      <div key={partner._key || idx} className="text-left">
                         {partner.href ? (
-                          <a href={partner.href} target="_blank" rel="noopener noreferrer" className="text-primary underline">
+                          <a href={partner.href} target="_blank" rel="noopener noreferrer" className="text-primary underline hover:text-primary/80 transition-colors">
                             {partner.name}
                           </a>
                         ) : (
                           <span className="font-medium">{partner.name}</span>
                         )}
-                        {partner.address && <span className="text-muted-foreground"> &nbsp;|&nbsp; {partner.address}</span>}
+                        {partner.address && (
+                          <span className="text-muted-foreground"> &nbsp;|&nbsp; {partner.address}</span>
+                        )}
                       </div>
                     ))}
                   </div>
-                )}
-
-                {p.conclusion && (
-                  <p className="mt-6 font-body text-base md:text-lg text-muted-foreground leading-relaxed md:max-w-xl">{p.conclusion}</p>
                 )}
 
                 {p.actionButton && (
@@ -167,7 +156,5 @@ const ProductsSection = () => {
     </section>
   );
 };
-
-export default ProductsSection;
 
 export default ProductsSection;

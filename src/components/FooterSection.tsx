@@ -1,6 +1,6 @@
-import { openPrivacyPolicy } from "./CookieBanner";
 import { useProcessedLandingPageData } from "@/hooks/useLandingPageData";
 import { Facebook, Mail, MapPin, Phone } from "lucide-react";
+import { openPrivacyPolicy } from "./CookieBanner";
 
 // Map contact method IDs to icons
 const iconMap = {
@@ -123,7 +123,5 @@ const FooterSection = () => {
     </footer>
   );
 };
-
-export default FooterSection;
 
 export default FooterSection;
