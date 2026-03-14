@@ -1,5 +1,5 @@
+import { getImageUrl, getLandingPageData } from '@/sanity/client'
 import { useQuery } from '@tanstack/react-query'
-import { getLandingPageData, getImageUrl } from '@/sanity/client'
 
 // Query key for the landing page data
 export const LANDING_PAGE_QUERY_KEY = ['landingPage']
@@ -41,6 +41,9 @@ export const useProcessedLandingPageData = () => {
         ...item,
         description: item.text || item.description,
         image: item.image ? getImageUrl(item.image) : null,
+        features: item.features?.map(f => 
+          f.name ? `**${f.name}** ${f.desc || ''}` : f.desc || f
+        ) || null,
       })),
     },
     newsletter: {
