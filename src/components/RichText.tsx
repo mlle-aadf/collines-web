@@ -13,6 +13,8 @@ interface RichTextProps {
  */
 export const RichText: React.FC<RichTextProps> = ({ content, className = '' }) => {
   const renderContent = (text: string) => {
+    if (!text) return null;
+    
     const parts: React.ReactNode[] = [];
     let lastIndex = 0;
     
@@ -55,6 +57,8 @@ export const RichText: React.FC<RichTextProps> = ({ content, className = '' }) =
     return parts;
   };
 
+  if (!content) return null;
+  
   return (
     <div className={className}>
       {renderContent(content)}

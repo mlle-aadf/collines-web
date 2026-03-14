@@ -1,24 +1,63 @@
 import { createClient } from '@sanity/client'
+import imageUrlBuilder, { type SanityImageSource } from '@sanity/image-url'
 
 export const sanityClient = createClient({
   projectId: 'g02lhe3y',
   dataset: 'production',
-  useCdn: true, // set to `false` to bypass the edge cache
-  apiVersion: '2023-05-03', // use current date (YYYY-MM-DD) to target the latest API version
+  useCdn: false, // set to `false` to bypass the edge cache and avoid CORS issues in development
+  apiVersion: '2026-03-13', // use current date (YYYY-MM-DD) to target the latest API version
   // token: process.env.SANITY_AUTH_TOKEN // Only if you want to update content with the client
 })
+
+// Create image URL builder instance
+const builder = imageUrlBuilder(sanityClient)
 
 // Query to fetch the landing page data
 export const LANDING_PAGE_QUERY = `
   *[_type == "landingPage"][0] {
-    navigation,
-    hero,
-    about,
-    products,
-    newsletter,
-    footer,
-    cookieBanner,
-    policy
+    navigation {
+      ...,
+    },
+    hero {
+      ...,
+    },
+    about {
+      ...,
+    },
+    products {
+      title,
+      items[] {
+        _key,
+        title,
+        subtitle,
+        text,
+        image,
+        features,
+        conclusion,
+        partners[] {
+          _key,
+          name,
+          address,
+          href
+        },
+        actionButton {
+          text,
+          href
+        }
+      }
+    },
+    newsletter {
+      ...,
+    },
+    footer {
+      ...,
+    },
+    cookieBanner {
+      ...,
+    },
+    policy {
+      ...,
+    }
   }
 `
 
@@ -34,7 +73,7 @@ export const getLandingPageData = async () => {
 }
 
 // Helper function to get image URL from Sanity image object
-export const getImageUrl = (imageRef) => {
+export const getImageUrl = (imageRef: SanityImageSource) => {
   if (!imageRef) return null
-  return sanityClient.image(imageRef).url()
+  return builder.image(imageRef).url()
 }

@@ -39,6 +39,7 @@ export const useProcessedLandingPageData = () => {
       ...data.products,
       items: data.products.items.map(item => ({
         ...item,
+        description: item.text || item.description,
         image: item.image ? getImageUrl(item.image) : null,
       })),
     },

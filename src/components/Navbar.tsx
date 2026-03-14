@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
-import { Menu, X, Facebook } from "lucide-react";
 import { useProcessedLandingPageData } from "@/hooks/useLandingPageData";
+import { Facebook, Menu, X } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -46,17 +46,6 @@ const Navbar = () => {
   }
 
   const nav = landingPageData.nav;
-
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const scrollTo = (id: string) => {
-    setIsMobileOpen(false);
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  };
 
   return (
     <nav
@@ -161,7 +150,7 @@ const Navbar = () => {
             rel="noopener noreferrer"
             className="font-body text-sm font-medium text-primary text-left flex items-center gap-2 hover:text-secondary transition-colors pb-2"
           >
-            <Facebook size={18} />
+            {/* <Facebook size={18} /> */}
             {nav.facebook.mobileLabel}
           </a>
         </div>
