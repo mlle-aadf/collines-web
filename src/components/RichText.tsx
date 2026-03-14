@@ -10,10 +10,14 @@ interface RichTextProps {
  * - [link text](url) - Markdown-style links
  * - **bold text** - Bold formatting
  * - Line breaks and spacing preserved
+ * - French typography (non-breaking spaces before punctuation)
  */
 export const RichText: React.FC<RichTextProps> = ({ content, className = '' }) => {
   const renderContent = (text: string) => {
     if (!text) return null;
+    
+    // Apply French typography: non-breaking space before : ; ! ?
+    text = text.replace(/\s+([:;!?])/g, '\u00A0$1');
     
     const parts: React.ReactNode[] = [];
     let lastIndex = 0;
