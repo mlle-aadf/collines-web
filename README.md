@@ -1,5 +1,7 @@
 # La Ferme des Collines — Vitrine web 🌿
 
+[![Ferme des Collines](src/assets/Ferme%20des%20Collines.png)](https://fermedescollines.ca/)
+
 Site vitrine développé pour **La Ferme des Collines** : présentation de la ferme, mise en valeur des produits et collecte d'abonnés à l'infolettre. Le code source est fourni pour consultation.
 
 ## ✨ Points clés
