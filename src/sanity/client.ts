@@ -32,6 +32,12 @@ export const LANDING_PAGE_QUERY = `
         subtitle,
         text,
         image,
+        marketInfo {
+          prefix,
+          linkText,
+          suffix,
+          href
+        },
         features,
         conclusion,
         partners[] {

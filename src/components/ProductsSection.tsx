@@ -96,6 +96,22 @@ const ProductsSection = () => {
                   {p.title}
                 </h3>
                 
+                {/* Market info with link */}
+                {p.marketInfo && (
+                  <div className="font-body text-base md:text-lg text-muted-foreground mb-4 md:max-w-xl">
+                    {p.marketInfo.prefix && <span>{p.marketInfo.prefix}</span>}
+                    <a 
+                      href={p.marketInfo.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary underline hover:text-primary/80 transition-colors"
+                    >
+                      {p.marketInfo.linkText}
+                    </a>
+                    {p.marketInfo.suffix && <span>{p.marketInfo.suffix}</span>}
+                  </div>
+                )}
+                
                 {/* Main description - supports markdown-style formatting */}
                 <RichText 
                   content={p.description}
