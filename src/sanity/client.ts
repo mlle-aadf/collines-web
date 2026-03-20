@@ -4,7 +4,7 @@ import imageUrlBuilder, { type SanityImageSource } from '@sanity/image-url'
 export const sanityClient = createClient({
   projectId: 'g02lhe3y',
   dataset: 'production',
-  useCdn: false, // Use CDN for better performance and to avoid CORS issues
+  useCdn: false, 
   perspective: 'published', // Ensure we only fetch published content
   apiVersion: '2026-03-13', // use current date (YYYY-MM-DD) to target the latest API version
   // token: process.env.SANITY_AUTH_TOKEN // Only if you want to update content with the client
