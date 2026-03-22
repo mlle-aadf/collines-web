@@ -91,7 +91,7 @@ Vous y découvrirez chaque jour une sélection de nos plus belles récoltes. Not
   {
     title: "Près de chez vous",
     subtitle: "Partenaires locaux",
-    description: `Retrouvez La Ferme des Collines chez nos partenaires de confiance
+    description: `Retrouvez La Ferme des Collines chez nos partenaires de confiance.
 
 Parce que nous croyons à la force de notre communauté, nos récoltes voyagent aussi jusqu'à vos adresses préférées de Rouyn-Noranda. Vous pouvez savourer la fraîcheur de nos légumes de saison aux points de vente suivants:`,
     partners: [
