@@ -53,6 +53,19 @@ const Navbar = () => {
         </Link>
       );
     }
+    if (link.href) {
+      return (
+        <a
+          href={link.href}
+          target={link.external ? "_blank" : undefined}
+          rel={link.external ? "noopener noreferrer" : undefined}
+          onClick={() => setIsMobileOpen(false)}
+          className={className}
+        >
+          {link.label}
+        </a>
+      );
+    }
     return (
       <button onClick={() => scrollTo(link.id!)} className={className}>
         {link.label}

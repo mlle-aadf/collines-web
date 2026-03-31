@@ -20,9 +20,8 @@ export const nav = {
   logoColor,
   links: [
     { label: "Nos produits", id: "produits" },
-    // { label: "Abonnement", id: "abonnement" },
+    { label: "Abonnement", href: "https://forms.gle/5XdKBtnyURd29b3E9", external: true },
     { label: "Notre équipe", route: "/equipe" },
-    // { label: "Infolettre", id: "infolettre" },
     { label: "Nous rejoindre", id: "contact" },
   ],
   facebook: {
@@ -135,7 +134,7 @@ export const footer = {
       id: "address",
       icon: MapPin,
       label: "Adresse",
-      value: "2485 Rang Gauvin Nord QC, Canada J9X 5L0",
+      value: "4646 Rang Gauvin Nord QC, Canada J0Z 1S0",
       href: "https://maps.app.goo.gl/FDmBtcfHhw9VXSdR8",
     },
     {
