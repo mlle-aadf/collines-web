@@ -7,12 +7,14 @@ Site vitrine développé pour **La Ferme des Collines** : présentation de la fe
 ## ✨ Points clés
 - 🖼️ Logo personnalisé pour **La Ferme des Collines**
 - 📱 Navigation simple et design responsive (mobile / tablette / desktop)
-- 🪧 Section d'accueil (Hero) avec visuel et message principal
-- ℹ️ Section « À propos » — courte présentation de la ferme
-- 🛍️ Section Produits — vitrine des produits proposés
-- ✉️ Abonnement aux Paniers — bouton **Je m'abonne** redirige vers un Google Form 
+- 🪧 Section d'accueil (Hero) avec bannière visuelle et message de bienvenue
+- ℹ️ Section intro — courte présentation de la ferme
+- 🛍️ Section produits — points de vente et options d'abonnement (bouton **Je m'abonne** redirige vers un Google Form)
+- 👥 Page Notre Équipe — présentation de l'équipe avec photos et descriptions
 - ✉️ Infolettre — bouton **Je m'inscris** redirige vers un formulaire d'inscription MailerLite
-- 🔒 Consentement cookies (Loi 25) — bannière minimale, pas d'analytics, stockage local uniquement pour l'essentiel
+- 📍 Pied de page — adresse, contact, lien Facebook
+- 🍪 Consentement cookies (Loi 25) — bannière minimale, témoins essentiels uniquement
+- 🔒 Politique de confidentialité minimale et conforme
 - ♻️ Composants réutilisables pour faciliter les mises à jour
 
 
@@ -80,6 +82,20 @@ Il y a 4 cartes (Paniers, Marché, Kiosque, Détaillants). Pour chacune :
 
 ---
 
+### 👥 Page Notre Équipe — `team`
+Il y a 4 cartes (Joël & Stéphanie, Les parents de Joël, Dominique, Stéphanie). Pour chacune :
+
+| Quoi changer | Clé à modifier |
+|---|---|
+| Titre de la page | `title` |
+| Nom de la carte | `name` |
+| Texte descriptif | `descriptions` (tableau de paragraphes) |
+| Image | voir **Changer une image** ↓ |
+
+> Pour la carte avec un espace réservé (silhouette), mettre `placeholder: true` et retirer `image`.
+
+---
+
 ### ✉️ Section Infolettre — `newsletter`
 | Quoi changer | Clé à modifier |
 |---|---|
@@ -131,6 +147,9 @@ Il y a 4 cartes (Paniers, Marché, Kiosque, Détaillants). Pour chacune :
 | `kiosqueImg` | Carte Kiosque |
 | `detaillantImg` | Carte Détaillants |
 | `newsletterImg` | Section Infolettre |
+| `stephanieJoelImg` | Carte Joël & Stéphanie |
+| `parentsImg` | Carte Les parents de Joël |
+| `dominiqueImg` | Carte Dominique |
 | `logoFull` | Logo dans le pied de page |
 | `logoWhite` | Logo blanc (menu en haut de page) |
 | `logoColor` | Logo couleur (menu après défilement) |
