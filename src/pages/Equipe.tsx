@@ -61,7 +61,7 @@ const Equipe = () => {
                   </h2>
                   {member.descriptions.map((desc, i) => {
                     const boldNames = ["Joël", "Stéphanie", "Dominique"];
-                    const match = boldNames.find((n) => desc.startsWith(n));
+                    const match = index === 0 ? boldNames.find((n) => desc.startsWith(n)) : undefined;
                     return (
                       <p
                         key={i}
