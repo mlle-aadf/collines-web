@@ -20,7 +20,7 @@ export const nav = {
   logoColor,
   links: [
     { label: "Nos produits", id: "produits" },
-    { label: "Abonnement", id: "abonnement" },
+    // { label: "Abonnement", id: "abonnement" },
     { label: "Notre équipe", route: "/equipe" },
     // { label: "Infolettre", id: "infolettre" },
     { label: "Nous rejoindre", id: "contact" },

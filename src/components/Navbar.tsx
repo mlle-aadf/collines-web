@@ -23,11 +23,12 @@ const Navbar = () => {
 
   const scrollTo = (id: string) => {
     setIsMobileOpen(false);
-    if (!isHomePage) {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    } else if (!isHomePage) {
       window.location.href = `/#${id}`;
-      return;
     }
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
   const renderNavLink = (link: typeof nav.links[number], className: string) => {
