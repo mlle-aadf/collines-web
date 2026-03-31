@@ -60,12 +60,21 @@ const Navbar = () => {
   };
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-        ? "bg-background/95 backdrop-blur-md shadow-card"
-        : "bg-transparent"
-        }`}
-    >
+    <>
+      {/* Mobile menu overlay */}
+      {isMobileOpen && (
+        <div
+          className="md:hidden fixed inset-0 top-16 bg-black/20 backdrop-blur-sm z-40"
+          onClick={() => setIsMobileOpen(false)}
+        />
+      )}
+
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+          ? "bg-background/95 backdrop-blur-md shadow-card"
+          : "bg-transparent"
+          }`}
+      >
       <div className="container relative flex items-center justify-between h-16 md:h-20">
         {/* Left side group for Desktop / Absolute container for Mobile */}
         <div className="flex items-center">
@@ -180,6 +189,7 @@ const Navbar = () => {
         </div>
       </div>
     </nav>
+    </>
   );
 };
 
