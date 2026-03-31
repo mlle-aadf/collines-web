@@ -1,13 +1,16 @@
+import dominiqueImg from "@/assets/dominique.jpg";
 import farmImage from "@/assets/farm-about.jpg";
 import heroImage from "@/assets/hero-farm.jpg";
 import logoColor from "@/assets/logo-color.png";
 import logoFull from "@/assets/logo-full.png";
 import logoWhite from "@/assets/logo-white.png";
 import newsletterImg from "@/assets/newsletter-image.jpg";
+import parentsImg from "@/assets/parents.jpg";
 import detaillantImg from "@/assets/product-detaillant.jpg";
 import kiosqueImg from "@/assets/product-kiosque.jpg";
 import marcheImg from "@/assets/product-marche.jpg";
 import paniersImg from "@/assets/product-paniers.jpg";
+import stephanieJoelImg from "@/assets/stephanie-joel.jpg";
 import { Facebook, Mail, MapPin, Phone } from "lucide-react";
 
 export const nav = {
@@ -18,7 +21,8 @@ export const nav = {
   links: [
     { label: "Nos produits", id: "produits" },
     { label: "Abonnement", id: "abonnement" },
-    { label: "Infolettre", id: "infolettre" },
+    { label: "Notre équipe", route: "/equipe" },
+    // { label: "Infolettre", id: "infolettre" },
     { label: "Nous rejoindre", id: "contact" },
   ],
   facebook: {
@@ -29,7 +33,7 @@ export const nav = {
 };
 
 export const hero = {
-  headline: "Bien manger, tout simplement!",
+  headline: "Bien manger, en toute simplicité!",
   imageAlt: "Vue aérienne de la ferme maraîchère",
   image: heroImage
 };
@@ -156,6 +160,41 @@ export const footer = {
       href: "https://www.facebook.com/people/Ferme-des-collines/100069650700211/?sk=about",
     },
   ],
+};
+
+export const team = {
+  title: "Notre Équipe",
+  members: [
+    {
+      name: "Joël & Stéphanie",
+      image: stephanieJoelImg,
+      descriptions: [
+        "Joël est celui qui aime comprendre et améliorer les choses. Toujours en recherche de meilleures méthodes, il s'intéresse beaucoup aux techniques de travail et à l'amélioration continue. Sur la ferme, il s'occupe principalement des travaux mécanisés au champ et veille à rendre les opérations toujours plus efficaces.",
+        "Stéphanie est la dynamique de l'équipe. Elle prépare la saison des légumes, coordonne les différents travaux au fil des semaines et veille à ce que tout s'enchaîne bien au bon moment. Elle s'occupe aussi des mises en marchés, ce qui lui permet de garder un lien direct avec les clients."
+      ]
+    },
+    {
+      name: "Les parents de Joël",
+      image: parentsImg,
+      descriptions: [
+        "Sans les parents de Joël, la ferme n'existerait tout simplement pas. Ce sont des travailleurs infatigables et de véritables modèles de persévérance pour nous. Leur façon d'avancer, toujours un petit pas à la fois, nous rappelle que ce sont la constance et le travail bien fait qui permettent de mener les projets jusqu'au bout."
+      ]
+    },
+    {
+      name: "Dominique",
+      image: dominiqueImg,
+      descriptions: [
+        "Dominique en est à sa deuxième année avec nous. Elle a une grande facilité à bien appliquer les méthodes de travail, ce qui est une excellente qualité sur une ferme. Très versatile, elle aime autant suivre Joël dans les travaux plus complexes et spécifiques que participer aux tâches du quotidien comme les commandes, les récoltes et l'entretien des cultures. Sa polyvalence et sa constance sont de précieux atouts pour l'équipe!"
+      ]
+    },
+    {
+      name: "Stéphanie",
+      placeholder: true,
+      descriptions: [
+        "Stéphanie se joint à notre équipe cette année. Elle possède un grand bagage en agriculture et prendra en charge la gestion de la serre. Son rôle nous permettra de bien répartir les responsabilités et de continuer à améliorer l'organisation du travail sur la ferme. Discrète, rieuse et très travaillante, Stéphanie apporte une belle énergie à l'équipe. Elle a aussi un excellent sens du détail, ce qui fait d'elle une personne particulièrement efficace lors des récoltes."
+      ]
+    }
+  ]
 };
 
 export const cookieBanner = {

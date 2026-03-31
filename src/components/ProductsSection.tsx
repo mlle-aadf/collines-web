@@ -4,7 +4,7 @@ const ProductsSection = () => {
   return (
     <section id="produits" className="py-20 md:py-32 bg-white">
       <div className="container">
-        <header className="max-w-3xl mx-auto text-center mb-20 md:mb-28">
+        <header className="max-w-3xl mx-auto text-center mb-8 md:mb-12">
           <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
             {products.title}
           </h2>
